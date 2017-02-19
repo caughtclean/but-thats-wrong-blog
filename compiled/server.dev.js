@@ -6822,6 +6822,11 @@ var Video = function Video(_ref) {
   return _react2.default.createElement(
     'div',
     { className: cx('video') },
+    _react2.default.createElement(
+      'h1',
+      null,
+      episode.header
+    ),
     next,
     _react2.default.createElement('iframe', { width: '560', height: '315',
       src: episodeNumber, frameborder: '0', allowfullscreen: true })
@@ -6961,7 +6966,7 @@ var Episode = function (_Component) {
       var episode = this.props.episode;
 
       if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
-        return episode.episode1;
+        return episode.episode1.url;
       }
       if (this.state.episodeNum === 2) {
         return episode.episode2;
@@ -6985,7 +6990,8 @@ var Episode = function (_Component) {
         'div',
         { className: cx('video') },
         _react2.default.createElement(_Video2.default, {
-          episode: this.setEpisode()
+          episode: this.setEpisode(),
+          header: episode.episode1.header
         }),
         this.episodeSelector()
       );
@@ -12035,32 +12041,42 @@ var types = _interopRequireWildcard(_types);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var episode1 = function episode1() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "yFTSHil4Owk";
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { url: "yFTSHil4Owk",
+    header: "EPISODE 1"
+  };
 
   return state;
 };
 
 var episode2 = function episode2() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "gBER4Or86hE";
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { url: "-7sKmD3meLs",
+    header: "EPISODE 2"
+  };
 
   return state;
 };
 
 var episode3 = function episode3() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "-7sKmD3meLs";
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { url: "yFTSHil4Owk",
+    header: "EPISODE 3"
+  };
 
   return state;
 };
 
 var episode4 = function episode4() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "pmxYePDPV6M";
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { url: "pmxYePDPV6M",
+    header: "EPISODE 4"
+  };
 
   return state;
 };
 
 var episodeReducer = (0, _redux.combineReducers)({
   episode1: episode1,
-  episode2: episode2
+  episode2: episode2,
+  episode3: episode3,
+  episode4: episode4
 });
 
 exports.default = episodeReducer;

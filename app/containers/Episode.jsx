@@ -52,7 +52,7 @@ class Episode extends Component {
   }
 
 
-  setEpisode() {
+  episodeData() {
     const {episode} = this.props;
     if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
       return (episode.episode1)
@@ -71,11 +71,12 @@ class Episode extends Component {
 
 
   render() {
-    const {episode, episodeSelector, setEpisode} = this.props;
+    const {episode, episodeSelector, episodeData} = this.props;
     return (
       <div className={cx('video')}>
         <Video
-          episode={this.setEpisode()}
+          episode={this.episodeData().url}
+          header={this.episodeData().header}
         />
           {this.episodeSelector()}
       </div>
