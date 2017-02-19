@@ -9,13 +9,58 @@ import Video from '../components/Video';
 const cx = classNames.bind(styles);
 
 class Episode extends Component {
-  render() {
+
+   constructor(...args) {
+    super(...args);
+    this.state = {
+     episodeNum: 1
+    };
+
+  }
+
+   nextEpisode() {
+    return(
+     <button
+      className={cx('button')}
+      onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>+</button>
+    )
+  }
+
+  prevEpisode() {
+    return(
+     <button
+      className={cx('button')}
+      onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>-</button>
+    )
+  }
+
+  setEpisode() {
     const {episode} = this.props;
+    if (this.state.episodeNum === 1) {
+   return (
+    episode.episode1
+    )
+  }
+    if (this.state.episodeNum === 2) {
+      return (
+        episode.episode2
+        )
+    }
+}
+
+
+
+  render() {
+    const {episode, nextEpisode, prevEpisode, setEpisode, episodeN} = this.props;
     return (
-      <div className={cx('vote')}>
+      <div className={cx('video')}>
         <Video
-          episode={episode} />
+          episode={this.setEpisode()}
+        />
+          {this.nextEpisode()}
+          {this.prevEpisode()}
       </div>
+
       )
   }
 

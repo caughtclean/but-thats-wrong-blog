@@ -970,6 +970,46 @@ module.exports = ReactComponentTreeHook;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var DISMISS_MESSAGE = exports.DISMISS_MESSAGE = 'DISMISS_MESSAGE';
+
+var CREATE_REQUEST = exports.CREATE_REQUEST = 'CREATE_REQUEST';
+var REQUEST_SUCCESS = exports.REQUEST_SUCCESS = 'REQUEST_SUCCESS';
+var REQUEST_FAILURE = exports.REQUEST_FAILURE = 'REQUEST_FAILURE';
+
+var CREATE_TOPIC_REQUEST = exports.CREATE_TOPIC_REQUEST = 'CREATE_TOPIC_REQUEST';
+var CREATE_TOPIC_FAILURE = exports.CREATE_TOPIC_FAILURE = 'CREATE_TOPIC_FAILURE';
+var CREATE_TOPIC_SUCCESS = exports.CREATE_TOPIC_SUCCESS = 'CREATE_TOPIC_SUCCESS';
+var CREATE_TOPIC_DUPLICATE = exports.CREATE_TOPIC_DUPLICATE = 'CREATE_TOPIC_DUPLICATE';
+var GET_TOPICS = exports.GET_TOPICS = 'GET_TOPICS';
+var GET_TOPICS_REQUEST = exports.GET_TOPICS_REQUEST = 'GET_TOPICS_REQUEST';
+var GET_TOPICS_SUCCESS = exports.GET_TOPICS_SUCCESS = 'GET_TOPICS_SUCCESS';
+var GET_TOPICS_FAILURE = exports.GET_TOPICS_FAILURE = 'GET_TOPICS_FAILURE';
+var INCREMENT_COUNT = exports.INCREMENT_COUNT = 'INCREMENT_COUNT';
+var DECREMENT_COUNT = exports.DECREMENT_COUNT = 'DECREMENT_COUNT';
+var DESTROY_TOPIC = exports.DESTROY_TOPIC = 'DESTROY_TOPIC';
+var TYPING = exports.TYPING = 'TYPING';
+
+var TOGGLE_LOGIN_MODE = exports.TOGGLE_LOGIN_MODE = 'TOGGLE_LOGIN_MODE';
+var MANUAL_LOGIN_USER = exports.MANUAL_LOGIN_USER = 'MANUAL_LOGIN_USER';
+var LOGIN_SUCCESS_USER = exports.LOGIN_SUCCESS_USER = 'LOGIN_SUCCESS_USER';
+var LOGIN_ERROR_USER = exports.LOGIN_ERROR_USER = 'LOGIN_ERROR_USER';
+var SIGNUP_USER = exports.SIGNUP_USER = 'SIGNUP_USER';
+var SIGNUP_SUCCESS_USER = exports.SIGNUP_SUCCESS_USER = 'SIGNUP_SUCCESS_USER';
+var SIGNUP_ERROR_USER = exports.SIGNUP_ERROR_USER = 'SIGNUP_ERROR_USER';
+var LOGOUT_USER = exports.LOGOUT_USER = 'LOGOUT_USER';
+var LOGOUT_SUCCESS_USER = exports.LOGOUT_SUCCESS_USER = 'LOGOUT_SUCCESS_USER';
+var LOGOUT_ERROR_USER = exports.LOGOUT_ERROR_USER = 'LOGOUT_ERROR_USER';
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -1222,7 +1262,7 @@ var ReactUpdates = {
 module.exports = ReactUpdates;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1493,46 +1533,6 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
      true ? warning(warningCondition, 'This synthetic event is reused for performance reasons. If you\'re seeing this, ' + 'you\'re %s `%s` on a released/nullified synthetic event. %s. ' + 'If you must keep the original synthetic event around, use event.persist(). ' + 'See https://fb.me/react-event-pooling for more information.', action, propName, result) : void 0;
   }
 }
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var DISMISS_MESSAGE = exports.DISMISS_MESSAGE = 'DISMISS_MESSAGE';
-
-var CREATE_REQUEST = exports.CREATE_REQUEST = 'CREATE_REQUEST';
-var REQUEST_SUCCESS = exports.REQUEST_SUCCESS = 'REQUEST_SUCCESS';
-var REQUEST_FAILURE = exports.REQUEST_FAILURE = 'REQUEST_FAILURE';
-
-var CREATE_TOPIC_REQUEST = exports.CREATE_TOPIC_REQUEST = 'CREATE_TOPIC_REQUEST';
-var CREATE_TOPIC_FAILURE = exports.CREATE_TOPIC_FAILURE = 'CREATE_TOPIC_FAILURE';
-var CREATE_TOPIC_SUCCESS = exports.CREATE_TOPIC_SUCCESS = 'CREATE_TOPIC_SUCCESS';
-var CREATE_TOPIC_DUPLICATE = exports.CREATE_TOPIC_DUPLICATE = 'CREATE_TOPIC_DUPLICATE';
-var GET_TOPICS = exports.GET_TOPICS = 'GET_TOPICS';
-var GET_TOPICS_REQUEST = exports.GET_TOPICS_REQUEST = 'GET_TOPICS_REQUEST';
-var GET_TOPICS_SUCCESS = exports.GET_TOPICS_SUCCESS = 'GET_TOPICS_SUCCESS';
-var GET_TOPICS_FAILURE = exports.GET_TOPICS_FAILURE = 'GET_TOPICS_FAILURE';
-var INCREMENT_COUNT = exports.INCREMENT_COUNT = 'INCREMENT_COUNT';
-var DECREMENT_COUNT = exports.DECREMENT_COUNT = 'DECREMENT_COUNT';
-var DESTROY_TOPIC = exports.DESTROY_TOPIC = 'DESTROY_TOPIC';
-var TYPING = exports.TYPING = 'TYPING';
-
-var TOGGLE_LOGIN_MODE = exports.TOGGLE_LOGIN_MODE = 'TOGGLE_LOGIN_MODE';
-var MANUAL_LOGIN_USER = exports.MANUAL_LOGIN_USER = 'MANUAL_LOGIN_USER';
-var LOGIN_SUCCESS_USER = exports.LOGIN_SUCCESS_USER = 'LOGIN_SUCCESS_USER';
-var LOGIN_ERROR_USER = exports.LOGIN_ERROR_USER = 'LOGIN_ERROR_USER';
-var SIGNUP_USER = exports.SIGNUP_USER = 'SIGNUP_USER';
-var SIGNUP_SUCCESS_USER = exports.SIGNUP_SUCCESS_USER = 'SIGNUP_SUCCESS_USER';
-var SIGNUP_ERROR_USER = exports.SIGNUP_ERROR_USER = 'SIGNUP_ERROR_USER';
-var LOGOUT_USER = exports.LOGOUT_USER = 'LOGOUT_USER';
-var LOGOUT_SUCCESS_USER = exports.LOGOUT_SUCCESS_USER = 'LOGOUT_SUCCESS_USER';
-var LOGOUT_ERROR_USER = exports.LOGOUT_ERROR_USER = 'LOGOUT_ERROR_USER';
 
 /***/ }),
 /* 14 */
@@ -3345,7 +3345,7 @@ module.exports = ReactReconciler;
 
 
 
-var SyntheticEvent = __webpack_require__(12);
+var SyntheticEvent = __webpack_require__(13);
 
 var getEventTarget = __webpack_require__(57);
 
@@ -6659,7 +6659,7 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _reactRouterRedux = __webpack_require__(69);
 
-var _types = __webpack_require__(13);
+var _types = __webpack_require__(11);
 
 var types = _interopRequireWildcard(_types);
 
@@ -6814,13 +6814,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var cx = _bind2.default.bind(_entrybox2.default);
 
 var Video = function Video(_ref) {
-  var episode = _ref.episode;
+  var episode = _ref.episode,
+      next = _ref.next;
 
+  var base = "https://www.youtube.com/embed/";
+  var episodeNumber = base.concat(episode);
   return _react2.default.createElement(
     'div',
     { className: cx('video') },
+    next,
     _react2.default.createElement('iframe', { width: '560', height: '315',
-      src: episode, frameborder: '0', allowfullscreen: true })
+      src: episodeNumber, frameborder: '0', allowfullscreen: true })
   );
 };
 
@@ -6875,21 +6879,64 @@ var Episode = function (_Component) {
   _inherits(Episode, _Component);
 
   function Episode() {
+    var _ref;
+
     _classCallCheck(this, Episode);
 
-    return _possibleConstructorReturn(this, (Episode.__proto__ || Object.getPrototypeOf(Episode)).apply(this, arguments));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var _this = _possibleConstructorReturn(this, (_ref = Episode.__proto__ || Object.getPrototypeOf(Episode)).call.apply(_ref, [this].concat(args)));
+
+    _this.state = {
+      episodeNum: 1
+    };
+
+    return _this;
   }
 
   _createClass(Episode, [{
+    key: 'nextEpisode',
+    value: function nextEpisode() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'button',
+        {
+          className: cx('button'),
+          onClick: function onClick() {
+            return _this2.setState({ episodeNum: 2 });
+          } },
+        '+'
+      );
+    }
+  }, {
+    key: 'setEpisode',
+    value: function setEpisode() {
+      var episode = this.props.episode;
+
+      if (this.state.episodeNum === 1) {
+        episodeN = episode.episode1;
+      } else {
+        episodeN = episode.episode2;
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var episode = this.props.episode;
+      var _props = this.props,
+          episode = _props.episode,
+          nextEpisode = _props.nextEpisode,
+          setEpisode = _props.setEpisode;
 
       return _react2.default.createElement(
         'div',
-        { className: cx('vote') },
+        { className: cx('video') },
         _react2.default.createElement(_Video2.default, {
-          episode: episode })
+          episode: setEpisode
+        }),
+        this.nextEpisode()
       );
     }
   }]);
@@ -6899,7 +6946,7 @@ var Episode = function (_Component) {
 
 function mapStateToProps(state) {
   return {
-    episode: state.episode1
+    episode: state.episode
   };
 }
 
@@ -7746,7 +7793,7 @@ var _assign = __webpack_require__(3);
 
 var LinkedValueUtils = __webpack_require__(49);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactUpdates = __webpack_require__(11);
+var ReactUpdates = __webpack_require__(12);
 
 var warning = __webpack_require__(1);
 
@@ -7949,7 +7996,7 @@ module.exports = ReactDOMSelect;
 
 var _assign = __webpack_require__(3);
 
-var ReactUpdates = __webpack_require__(11);
+var ReactUpdates = __webpack_require__(12);
 var Transaction = __webpack_require__(38);
 
 var emptyFunction = __webpack_require__(8);
@@ -8379,7 +8426,7 @@ var _prodInvariant = __webpack_require__(2);
 var ReactCurrentOwner = __webpack_require__(15);
 var ReactInstanceMap = __webpack_require__(53);
 var ReactInstrumentation = __webpack_require__(9);
-var ReactUpdates = __webpack_require__(11);
+var ReactUpdates = __webpack_require__(12);
 
 var invariant = __webpack_require__(0);
 var warning = __webpack_require__(1);
@@ -9853,7 +9900,7 @@ var _configureStore = __webpack_require__(153);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
-var _types = __webpack_require__(13);
+var _types = __webpack_require__(11);
 
 var types = _interopRequireWildcard(_types);
 
@@ -10069,7 +10116,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.dismissMessage = dismissMessage;
 
-var _types = __webpack_require__(13);
+var _types = __webpack_require__(11);
 
 var types = _interopRequireWildcard(_types);
 
@@ -10114,7 +10161,7 @@ var _sparkMd = __webpack_require__(317);
 
 var _sparkMd2 = _interopRequireDefault(_sparkMd);
 
-var _types = __webpack_require__(13);
+var _types = __webpack_require__(11);
 
 var types = _interopRequireWildcard(_types);
 
@@ -11924,13 +11971,36 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _redux = __webpack_require__(35);
 
-var episode = function episode() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "https://www.youtube.com/embed/yFTSHil4Owk";
+var _types = __webpack_require__(11);
+
+var types = _interopRequireWildcard(_types);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var episode1 = function episode1() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "yFTSHil4Owk";
 
   return state;
 };
+
+var episode2 = function episode2() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "gBER4Or86hE";
+
+  return state;
+};
+
+var episodeReducer = (0, _redux.combineReducers)({
+  episode1: episode1,
+  episode2: episode2
+});
+
+exports.default = episodeReducer;
 
 /***/ }),
 /* 146 */
@@ -11963,7 +12033,7 @@ var _episode = __webpack_require__(145);
 
 var _episode2 = _interopRequireDefault(_episode);
 
-var _types = __webpack_require__(13);
+var _types = __webpack_require__(11);
 
 var types = _interopRequireWildcard(_types);
 
@@ -12014,7 +12084,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.default = message;
 
-var _types = __webpack_require__(13);
+var _types = __webpack_require__(11);
 
 var types = _interopRequireWildcard(_types);
 
@@ -12059,7 +12129,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _redux = __webpack_require__(35);
 
-var _types = __webpack_require__(13);
+var _types = __webpack_require__(11);
 
 var types = _interopRequireWildcard(_types);
 
@@ -12155,7 +12225,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(35);
 
-var _types = __webpack_require__(13);
+var _types = __webpack_require__(11);
 
 var types = _interopRequireWildcard(_types);
 
@@ -15669,8 +15739,8 @@ var EventPluginHub = __webpack_require__(29);
 var EventPropagators = __webpack_require__(30);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactUpdates = __webpack_require__(11);
-var SyntheticEvent = __webpack_require__(12);
+var ReactUpdates = __webpack_require__(12);
+var SyntheticEvent = __webpack_require__(13);
 
 var getEventTarget = __webpack_require__(57);
 var isEventSupported = __webpack_require__(58);
@@ -18752,7 +18822,7 @@ var _prodInvariant = __webpack_require__(2),
 var DOMPropertyOperations = __webpack_require__(86);
 var LinkedValueUtils = __webpack_require__(49);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactUpdates = __webpack_require__(11);
+var ReactUpdates = __webpack_require__(12);
 
 var invariant = __webpack_require__(0);
 var warning = __webpack_require__(1);
@@ -19579,7 +19649,7 @@ var _prodInvariant = __webpack_require__(2),
 
 var LinkedValueUtils = __webpack_require__(49);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactUpdates = __webpack_require__(11);
+var ReactUpdates = __webpack_require__(12);
 
 var invariant = __webpack_require__(0);
 var warning = __webpack_require__(1);
@@ -20406,7 +20476,7 @@ var EventListener = __webpack_require__(81);
 var ExecutionEnvironment = __webpack_require__(6);
 var PooledClass = __webpack_require__(16);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactUpdates = __webpack_require__(11);
+var ReactUpdates = __webpack_require__(12);
 
 var getEventTarget = __webpack_require__(57);
 var getUnboundedScrollPosition = __webpack_require__(208);
@@ -20633,7 +20703,7 @@ var ReactComponentEnvironment = __webpack_require__(51);
 var ReactEmptyComponent = __webpack_require__(90);
 var ReactBrowserEventEmitter = __webpack_require__(50);
 var ReactHostComponent = __webpack_require__(91);
-var ReactUpdates = __webpack_require__(11);
+var ReactUpdates = __webpack_require__(12);
 
 var ReactInjection = {
   Component: ReactComponentEnvironment.injection,
@@ -21704,7 +21774,7 @@ var ReactMarkupChecksum = __webpack_require__(249);
 var ReactReconciler = __webpack_require__(31);
 var ReactServerBatchingStrategy = __webpack_require__(256);
 var ReactServerRenderingTransaction = __webpack_require__(94);
-var ReactUpdates = __webpack_require__(11);
+var ReactUpdates = __webpack_require__(12);
 
 var emptyObject = __webpack_require__(26);
 var instantiateReactComponent = __webpack_require__(100);
@@ -22264,7 +22334,7 @@ var EventPropagators = __webpack_require__(30);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInputSelection = __webpack_require__(92);
-var SyntheticEvent = __webpack_require__(12);
+var SyntheticEvent = __webpack_require__(13);
 
 var getActiveElement = __webpack_require__(83);
 var isTextInputElement = __webpack_require__(101);
@@ -22464,7 +22534,7 @@ var EventPropagators = __webpack_require__(30);
 var ReactDOMComponentTree = __webpack_require__(5);
 var SyntheticAnimationEvent = __webpack_require__(263);
 var SyntheticClipboardEvent = __webpack_require__(264);
-var SyntheticEvent = __webpack_require__(12);
+var SyntheticEvent = __webpack_require__(13);
 var SyntheticFocusEvent = __webpack_require__(267);
 var SyntheticKeyboardEvent = __webpack_require__(269);
 var SyntheticMouseEvent = __webpack_require__(37);
@@ -22689,7 +22759,7 @@ module.exports = SimpleEventPlugin;
 
 
 
-var SyntheticEvent = __webpack_require__(12);
+var SyntheticEvent = __webpack_require__(13);
 
 /**
  * @interface Event
@@ -22733,7 +22803,7 @@ module.exports = SyntheticAnimationEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(12);
+var SyntheticEvent = __webpack_require__(13);
 
 /**
  * @interface Event
@@ -22776,7 +22846,7 @@ module.exports = SyntheticClipboardEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(12);
+var SyntheticEvent = __webpack_require__(13);
 
 /**
  * @interface Event
@@ -22899,7 +22969,7 @@ module.exports = SyntheticFocusEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(12);
+var SyntheticEvent = __webpack_require__(13);
 
 /**
  * @interface Event
@@ -23080,7 +23150,7 @@ module.exports = SyntheticTouchEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(12);
+var SyntheticEvent = __webpack_require__(13);
 
 /**
  * @interface Event
