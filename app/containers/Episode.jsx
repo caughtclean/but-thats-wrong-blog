@@ -18,47 +18,66 @@ class Episode extends Component {
 
   }
 
-   nextEpisode() {
-    return(
-     <button
-      className={cx('button')}
-      onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>+</button>
-    )
+   episodeSelector() {
+    if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
+      return(
+      <div className={cx('selectors')}>
+       <button
+          className={cx('button')}
+          onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>+</button>
+      </div>
+      )
+    }
+    if (this.state.episodeNum === 4) {
+      return(
+      <div className={cx('selectors')}>
+       <button
+            className={cx('button')}
+            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>-</button>
+      </div>
+      )
+    }
+    else {
+      return(
+        <div className={cx('selectors')}>
+         <button
+            className={cx('button')}
+            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>+</button>
+         <button
+            className={cx('button')}
+            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>-</button>
+        </div>
+      )
+    }
   }
 
-  prevEpisode() {
-    return(
-     <button
-      className={cx('button')}
-      onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>-</button>
-    )
-  }
 
   setEpisode() {
     const {episode} = this.props;
-    if (this.state.episodeNum === 1) {
-   return (
-    episode.episode1
-    )
-  }
-    if (this.state.episodeNum === 2) {
-      return (
-        episode.episode2
-        )
+    if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
+      return (episode.episode1)
     }
-}
+    if (this.state.episodeNum === 2) {
+      return (episode.episode2)
+    }
+    if (this.state.episodeNum === 3) {
+      return (episode.episode3)
+    }
+    if (this.state.episodeNum === 4) {
+      return (episode.episode4)
+    }
+  }
 
 
 
   render() {
-    const {episode, nextEpisode, prevEpisode, setEpisode, episodeN} = this.props;
+    const {episode, episodeSelector, setEpisode} = this.props;
     return (
       <div className={cx('video')}>
         <Video
           episode={this.setEpisode()}
         />
-          {this.nextEpisode()}
-          {this.prevEpisode()}
+          {this.episodeSelector()}
       </div>
 
       )

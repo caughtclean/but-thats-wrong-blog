@@ -6897,29 +6897,80 @@ var Episode = function (_Component) {
   }
 
   _createClass(Episode, [{
-    key: 'nextEpisode',
-    value: function nextEpisode() {
+    key: 'episodeSelector',
+    value: function episodeSelector() {
       var _this2 = this;
 
-      return _react2.default.createElement(
-        'button',
-        {
-          className: cx('button'),
-          onClick: function onClick() {
-            return _this2.setState({ episodeNum: 2 });
-          } },
-        '+'
-      );
+      if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
+        return _react2.default.createElement(
+          'div',
+          { className: cx('selectors') },
+          _react2.default.createElement(
+            'button',
+            {
+              className: cx('button'),
+              onClick: function onClick() {
+                return _this2.setState({ episodeNum: _this2.state.episodeNum + 1 });
+              } },
+            '+'
+          )
+        );
+      }
+      if (this.state.episodeNum === 4) {
+        return _react2.default.createElement(
+          'div',
+          { className: cx('selectors') },
+          _react2.default.createElement(
+            'button',
+            {
+              className: cx('button'),
+              onClick: function onClick() {
+                return _this2.setState({ episodeNum: _this2.state.episodeNum - 1 });
+              } },
+            '-'
+          )
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          { className: cx('selectors') },
+          _react2.default.createElement(
+            'button',
+            {
+              className: cx('button'),
+              onClick: function onClick() {
+                return _this2.setState({ episodeNum: _this2.state.episodeNum + 1 });
+              } },
+            '+'
+          ),
+          _react2.default.createElement(
+            'button',
+            {
+              className: cx('button'),
+              onClick: function onClick() {
+                return _this2.setState({ episodeNum: _this2.state.episodeNum - 1 });
+              } },
+            '-'
+          )
+        );
+      }
     }
   }, {
     key: 'setEpisode',
     value: function setEpisode() {
       var episode = this.props.episode;
 
-      if (this.state.episodeNum === 1) {
-        episodeN = episode.episode1;
-      } else {
-        episodeN = episode.episode2;
+      if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
+        return episode.episode1;
+      }
+      if (this.state.episodeNum === 2) {
+        return episode.episode2;
+      }
+      if (this.state.episodeNum === 3) {
+        return episode.episode3;
+      }
+      if (this.state.episodeNum === 4) {
+        return episode.episode4;
       }
     }
   }, {
@@ -6927,16 +6978,16 @@ var Episode = function (_Component) {
     value: function render() {
       var _props = this.props,
           episode = _props.episode,
-          nextEpisode = _props.nextEpisode,
+          episodeSelector = _props.episodeSelector,
           setEpisode = _props.setEpisode;
 
       return _react2.default.createElement(
         'div',
         { className: cx('video') },
         _react2.default.createElement(_Video2.default, {
-          episode: setEpisode
+          episode: this.setEpisode()
         }),
-        this.nextEpisode()
+        this.episodeSelector()
       );
     }
   }]);
@@ -11991,6 +12042,18 @@ var episode1 = function episode1() {
 
 var episode2 = function episode2() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "gBER4Or86hE";
+
+  return state;
+};
+
+var episode3 = function episode3() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "-7sKmD3meLs";
+
+  return state;
+};
+
+var episode4 = function episode4() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "pmxYePDPV6M";
 
   return state;
 };
