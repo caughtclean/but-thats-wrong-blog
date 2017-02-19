@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import styles from '../css/components/entrybox';
 import Episode from '../containers/Episode'
 
+
 const cx = classNames.bind(styles);
 
 const Video = ({episode, next, header}) => {

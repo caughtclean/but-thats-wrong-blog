@@ -4,6 +4,10 @@ import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
 import styles from '../css/components/login';
 import Video from '../components/Video';
+import FacebookProvider from 'react-facebook';
+import Comments from '../components/Comments';
+import Login from '../components/Login';
+
 
 
 const cx = classNames.bind(styles);
@@ -78,6 +82,8 @@ class Episode extends Component {
           episode={this.episodeData().url}
           header={this.episodeData().header}
         />
+        <Login />
+        <Comments />
           {this.episodeSelector()}
       </div>
 
