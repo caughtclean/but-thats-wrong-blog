@@ -7,6 +7,8 @@ import Video from '../components/Video';
 import FacebookProvider from 'react-facebook';
 import Comments from '../components/Comments';
 import Login from '../components/Login';
+import CommentsCount from '../components/CommentsCount';
+
 
 
 
@@ -14,8 +16,8 @@ const cx = classNames.bind(styles);
 
 class Episode extends Component {
 
-   constructor(...args) {
-    super(...args);
+   constructor(props) {
+    super(props);
     this.state = {
      episodeNum: 1
     };
@@ -55,6 +57,57 @@ class Episode extends Component {
     }
   }
 
+  commentSection () {
+    const {comments1, comments2, comments3, comments4} = this.props;
+    if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
+      return (
+        <div className={cx('comments')}>
+          <Comments
+          epComments={comments1}
+          key={this.state.episodeNum}
+
+          />
+
+        </div>
+      )
+    }
+    if (this.state.episodeNum === 2) {
+      return (
+        <div className={cx('comments')}>
+          <Comments
+          epComments={comments2}
+          key={this.state.episodeNum}
+
+          />
+
+        </div>
+      )
+    }
+    if (this.state.episodeNum === 3) {
+      return (
+        <div className={cx('comments')}>
+          <Comments
+          epComments={comments3}
+          key={this.state.episodeNum}
+
+          />
+
+        </div>
+      )
+    }
+    if (this.state.episodeNum === 4) {
+      return (
+        <div className={cx('comments')}>
+          <Comments
+          epComments={comments4}
+          key={this.state.episodeNum}
+
+          />
+
+        </div>
+      )
+    }
+  }
 
   episodeData() {
     const {episode} = this.props;
@@ -72,8 +125,6 @@ class Episode extends Component {
     }
   }
 
-
-
   render() {
     const {episode, episodeSelector, episodeData} = this.props;
     return (
@@ -82,9 +133,9 @@ class Episode extends Component {
           episode={this.episodeData().url}
           header={this.episodeData().header}
         />
-        <Login />
-        <Comments />
-          {this.episodeSelector()}
+        <Login/>
+        {this.commentSection()}
+        {this.episodeSelector()}
       </div>
 
       )
@@ -96,7 +147,11 @@ class Episode extends Component {
 
 function mapStateToProps(state) {
   return {
-    episode: state.episode
+    episode: state.episode,
+    comments1: state.episode.episode1.comments,
+    comments2: state.episode.episode2.comments,
+    comments3: state.episode.episode3.comments,
+    comments4: state.episode.episode4.comments
   };
 }
 

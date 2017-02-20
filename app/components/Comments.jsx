@@ -1,12 +1,25 @@
 import React, { Component} from 'react';
 import FacebookProvider, { Comments } from 'react-facebook';
+import Episode from '../containers/Episode';
 
 export default class Example extends Component {
+
+ constructor(props) {
+    super(props);
+    this.state = {
+     key: ""
+    };
+
+  }
+
+
   render() {
-    return (
-      <FacebookProvider appID="195714124244006">
-        <Comments href="http://www.butthatswrong.com/comments/episode1" />
-      </FacebookProvider>
-    );
+    const {epComments} = this.props;
+        return (
+          <FacebookProvider appID="195714124244006">
+            <Comments href={epComments} />
+          </FacebookProvider>
+
+        );
   }
 }
