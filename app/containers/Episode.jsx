@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
-import styles from '../css/components/login';
+import styles from '../css/components/episode';
 import Video from '../components/Video';
 import FacebookProvider from 'react-facebook';
 import Comments from '../components/Comments';

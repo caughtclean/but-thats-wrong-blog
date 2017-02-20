@@ -1,0 +1,24 @@
+@import '../settings';
+@import '../common/typography';
+@import '../common/colors';
+@import '../common/button';
+@import '../common/input';
+
+div>.video>iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.comments {
+  position: absolute;
+  top: 90%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+

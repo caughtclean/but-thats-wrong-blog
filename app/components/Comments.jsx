@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import FacebookProvider, { Comments } from 'react-facebook';
 import Episode from '../containers/Episode';
+import styles from '../css/components/comments';
 
 export default class Example extends Component {
 

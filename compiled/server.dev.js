@@ -4122,7 +4122,8 @@ var Episode = function (_Component) {
           'div',
           { className: cx('comments') },
           _react2.default.createElement(_Comments2.default, {
-            epComments: comments1
+            epComments: comments1,
+            key: this.state.episodeNum
 
           })
         );
@@ -4132,7 +4133,8 @@ var Episode = function (_Component) {
           'div',
           { className: cx('comments') },
           _react2.default.createElement(_Comments2.default, {
-            epComments: comments2
+            epComments: comments2,
+            key: this.state.episodeNum
 
           })
         );
@@ -4142,7 +4144,8 @@ var Episode = function (_Component) {
           'div',
           { className: cx('comments') },
           _react2.default.createElement(_Comments2.default, {
-            epComments: comments3
+            epComments: comments3,
+            key: this.state.episodeNum
 
           })
         );
@@ -4152,7 +4155,8 @@ var Episode = function (_Component) {
           'div',
           { className: cx('comments') },
           _react2.default.createElement(_Comments2.default, {
-            epComments: comments4
+            epComments: comments4,
+            key: this.state.episodeNum
 
           })
         );
@@ -10485,10 +10489,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Example = function (_Component) {
   _inherits(Example, _Component);
 
-  function Example() {
+  function Example(props) {
     _classCallCheck(this, Example);
 
-    return _possibleConstructorReturn(this, (Example.__proto__ || Object.getPrototypeOf(Example)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Example.__proto__ || Object.getPrototypeOf(Example)).call(this, props));
+
+    _this.state = {
+      key: ""
+    };
+
+    return _this;
   }
 
   _createClass(Example, [{
@@ -11182,8 +11192,6 @@ var App = function App(_ref) {
       { appID: '123456789' },
       children
     ),
-    _react2.default.createElement(_Navigation2.default, null),
-    _react2.default.createElement(_Message2.default, null),
     _react2.default.createElement(_Episode2.default, null)
   );
 };
