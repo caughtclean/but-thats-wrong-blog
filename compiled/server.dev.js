@@ -1457,7 +1457,7 @@ var HOST = exports.HOST = process.env.HOSTNAME || 'localhost';
 var PORT = exports.PORT = process.env.PORT || '3000';
 var ENV = exports.ENV = "development" || 'development';
 
-var DB_TYPE = exports.DB_TYPE = process.env.DB_TYPE || _dbTypes.DB_TYPES.MONGO;
+var DB_TYPE = exports.DB_TYPE = process.env.DB_TYPE || _dbTypes.DB_TYPES.NONE;
 
 var GOOGLE_ANALYTICS_ID = exports.GOOGLE_ANALYTICS_ID = process.env.GOOGLE_ANALYTICS_ID || null;
 
@@ -4003,49 +4003,30 @@ var Episode = function (_Component) {
           comments3 = _props.comments3,
           comments4 = _props.comments4;
 
-      if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
-        return _react2.default.createElement(
-          'div',
-          { className: 'comments' },
-          _react2.default.createElement(_Comments2.default, {
-            epComments: comments1,
-            key: this.state.episodeNum
 
-          })
-        );
+      if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
+        return _react2.default.createElement(_Comments2.default, { id: 'comments',
+          epComments: comments1,
+          key: this.state.episodeNum
+        });
       }
       if (this.state.episodeNum === 2) {
-        return _react2.default.createElement(
-          'div',
-          { className: 'comments' },
-          _react2.default.createElement(_Comments2.default, {
-            epComments: comments2,
-            key: this.state.episodeNum
-
-          })
-        );
+        return _react2.default.createElement(_Comments2.default, { id: 'comments',
+          epComments: comments2,
+          key: this.state.episodeNum
+        });
       }
       if (this.state.episodeNum === 3) {
-        return _react2.default.createElement(
-          'div',
-          { className: 'comments' },
-          _react2.default.createElement(_Comments2.default, {
-            epComments: comments3,
-            key: this.state.episodeNum
-
-          })
-        );
+        return _react2.default.createElement(_Comments2.default, { id: 'comments',
+          epComments: comments3,
+          key: this.state.episodeNum
+        });
       }
       if (this.state.episodeNum === 4) {
-        return _react2.default.createElement(
-          'div',
-          { className: 'comments' },
-          _react2.default.createElement(_Comments2.default, {
-            epComments: comments4,
-            key: this.state.episodeNum
-
-          })
-        );
+        return _react2.default.createElement(_Comments2.default, { id: 'comments',
+          epComments: comments4,
+          key: this.state.episodeNum
+        });
       }
     }
   }, {
@@ -4076,21 +4057,13 @@ var Episode = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'episode' },
-        _react2.default.createElement(
-          'div',
-          { className: 'video' },
-          _react2.default.createElement(_Video2.default, {
-            episode: this.episodeData().url,
-            header: this.episodeData().header
-          }),
-          this.episodeSelector()
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'commentSection' },
-          this.commentSection()
-        )
+        { className: 'video' },
+        _react2.default.createElement(_Video2.default, {
+          episode: this.episodeData().url,
+          header: this.episodeData().header
+        }),
+        this.commentSection(),
+        this.episodeSelector()
       );
     }
   }]);
@@ -10066,10 +10039,20 @@ var Example = function (_Component) {
     value: function render() {
       var epComments = this.props.epComments;
 
+      var style = { position: 'absolute',
+        top: '90%',
+        left: 0,
+        right: 0,
+        bottom: 0
+      };
       return _react2.default.createElement(
-        _reactFacebook2.default,
-        { appID: '195714124244006' },
-        _react2.default.createElement(_reactFacebook.Comments, { href: epComments })
+        'div',
+        { style: style },
+        _react2.default.createElement(
+          _reactFacebook2.default,
+          { appID: '195714124244006' },
+          _react2.default.createElement(_reactFacebook.Comments, { href: epComments })
+        )
       );
     }
   }]);
@@ -12740,7 +12723,7 @@ module.exports = function () {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"comments": "_2RHnVb7UbdZCb5c6HO6ZeV"
+	"commentsSection": "c5CphX9lRcgzLu1zde8Da"
 };
 
 /***/ }),
@@ -12748,7 +12731,8 @@ module.exports = {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"button": "BEUb_6ASce4ip-KVQ9-JY"
+	"button": "BEUb_6ASce4ip-KVQ9-JY",
+	"comments": "_288AAARuZ5vhlawXJU2XRA"
 };
 
 /***/ }),
@@ -12757,8 +12741,7 @@ module.exports = {
 
 module.exports = {
 	"video": "_3AFeQNaKS9JIo5PnK96Vnd",
-	"div": "_1kvqE8JXrb1k8EndDeX-F4",
-	"comments": "_2TFwht6k1kWx-8up-dYAzX"
+	"span": "_2xWQrHCepmCwLbXT0X2L8A"
 };
 
 /***/ }),
