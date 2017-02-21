@@ -16,6 +16,7 @@ const buildPage = ({ componentHTML, initialState, headAssets }) => {
 <!doctype html>
 <html>
   <head>
+<meta name="viewport" content="width=device-width">
     ${headAssets.title.toString()}
     ${headAssets.meta.toString()}
     ${headAssets.link.toString()}

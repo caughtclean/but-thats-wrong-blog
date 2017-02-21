@@ -12477,7 +12477,7 @@ var buildPage = function buildPage(_ref) {
       initialState = _ref.initialState,
       headAssets = _ref.headAssets;
 
-  return '\n<!doctype html>\n<html>\n  <head>\n    ' + headAssets.title.toString() + '\n    ' + headAssets.meta.toString() + '\n    ' + headAssets.link.toString() + '\n    ' + (0, _createScripts.createTrackingScript)() + '\n  </head>\n  <body>\n    <div id="app">' + componentHTML + '</div>\n    <script>window.__INITIAL_STATE__ = ' + JSON.stringify(initialState) + '</script>\n    ' + (0, _createScripts.createAppScript)() + '\n  </body>\n</html>';
+  return '\n<!doctype html>\n<html>\n  <head>\n<meta name="viewport" content="width=device-width">\n    ' + headAssets.title.toString() + '\n    ' + headAssets.meta.toString() + '\n    ' + headAssets.link.toString() + '\n    ' + (0, _createScripts.createTrackingScript)() + '\n  </head>\n  <body>\n    <div id="app">' + componentHTML + '</div>\n    <script>window.__INITIAL_STATE__ = ' + JSON.stringify(initialState) + '</script>\n    ' + (0, _createScripts.createAppScript)() + '\n  </body>\n</html>';
 };
 
 exports.default = function (store, props) {

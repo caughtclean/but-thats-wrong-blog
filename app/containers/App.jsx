@@ -8,6 +8,7 @@ import FacebookProvider from 'react-facebook';
 
 const App = ({children}) => {
   return (
+
     <div className='app'>
       <FacebookProvider  appID="123456789">
         {children}

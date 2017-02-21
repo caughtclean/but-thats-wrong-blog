@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+* { box-sizing: border-box; }body {
+  margin: 0;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}._36NQSpzGCuxg-jneTII5ou {
+  padding: 8px 24px;
+  height: 100%;
+  font-weight: normal;
+  font-smoothing: antialiased;
+}/* Add your global styles below... *//* ex:
+
+:global {
+  & .red { color: red; }
+  & .blue { color: blue; }
+}
+
+*/
+._3AFeQNaKS9JIo5PnK96Vnd>iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+}
+#_2xWQrHCepmCwLbXT0X2L8A {
+  position: absolute;
+  top: 150%;
+}
+.BEUb_6ASce4ip-KVQ9-JY {
+  color: red;
+}
+h1 {
+  text-align: center;
+}
+._288AAARuZ5vhlawXJU2XRA {
+  position: absolute;
+  top: 100%;
+}#c5CphX9lRcgzLu1zde8Da {
+  position: absolute;
+  top: 150%;
+  left: 0%;
+  right: 0%;
+  bottom: 0;
+  margin: auto;
+  padding-left: 15%;
+}
+/*# sourceMappingURL=main.css.map*/
