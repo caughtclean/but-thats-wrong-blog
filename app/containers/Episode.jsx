@@ -8,7 +8,7 @@ import FacebookProvider from 'react-facebook';
 import Comments from '../components/Comments';
 import Login from '../components/Login';
 import CommentsCount from '../components/CommentsCount';
-
+import {ButtonToolbar, Button} from 'react-bootstrap'
 
 
 
@@ -24,34 +24,40 @@ class Episode extends Component {
 
   }
 
+
+
+
+
+
+
    episodeSelector() {
     if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
       return(
-      <div className={cx('selectors')}>
+      <div className='selectors'>
        <button
-          className={cx('button')}
-          onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>+</button>
+          className='button'
+          onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode</button>
       </div>
       )
     }
     if (this.state.episodeNum === 4) {
       return(
-      <div className={cx('selectors')}>
+      <div className='selectors'>
        <button
-            className={cx('button')}
-            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>-</button>
+            className='button'
+            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode</button>
       </div>
       )
     }
     else {
       return(
-        <div className={cx('selectors')}>
+        <div>
          <button
-            className={cx('button')}
-            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>+</button>
+            className='next'
+            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode</button>
          <button
-            className={cx('button')}
-            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>-</button>
+            className='prev'
+            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode</button>
         </div>
       )
     }
@@ -59,52 +65,37 @@ class Episode extends Component {
 
   commentSection () {
     const {comments1, comments2, comments3, comments4} = this.props;
+
     if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
       return (
-        <div className={cx('comments')}>
-          <Comments
+          <Comments id="comments"
           epComments={comments1}
           key={this.state.episodeNum}
-
           />
-
-        </div>
       )
     }
     if (this.state.episodeNum === 2) {
       return (
-        <div className={cx('comments')}>
-          <Comments
+          <Comments id="comments"
           epComments={comments2}
           key={this.state.episodeNum}
-
           />
-
-        </div>
       )
     }
     if (this.state.episodeNum === 3) {
       return (
-        <div className={cx('comments')}>
-          <Comments
+          <Comments id="comments"
           epComments={comments3}
           key={this.state.episodeNum}
-
           />
-
-        </div>
       )
     }
     if (this.state.episodeNum === 4) {
       return (
-        <div className={cx('comments')}>
-          <Comments
+          <Comments id="comments"
           epComments={comments4}
           key={this.state.episodeNum}
-
           />
-
-        </div>
       )
     }
   }
@@ -128,17 +119,16 @@ class Episode extends Component {
   render() {
     const {episode, episodeSelector, episodeData} = this.props;
     return (
-      <div className={cx('video')}>
+      <div className='video'>
         <Video
           episode={this.episodeData().url}
           header={this.episodeData().header}
         />
-        <Login/>
         {this.commentSection()}
         {this.episodeSelector()}
       </div>
 
-      )
+    )
   }
 
 

@@ -14,7 +14,7 @@ const Video = ({episode, next, header}) => {
     <div className={cx('video')}>
       <h1>{header}</h1>
       {next}
-      <iframe width="560" height="315"
+      <iframe width="854" height="480"
       src={episodeNumber} frameborder="0" allowfullscreen>
       </iframe>
     </div>

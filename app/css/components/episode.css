@@ -4,11 +4,18 @@
 @import '../common/button';
 @import '../common/input';
 
+
+
+
+.button {
+  color: red;
+}
+
+h1 {
+  text-align: center;
+}
+
 .comments {
   position: absolute;
-  top: 90%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  top: 100%;
 }

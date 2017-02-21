@@ -4,12 +4,12 @@
 @import '../common/button';
 @import '../common/input';
 
-
-.comments {
+#commentsSection {
   position: absolute;
-  top: 90%;
-  left: 0;
-  right: 0;
+  top: 150%;
+  left: 0%;
+  right: 0%;
   bottom: 0;
   margin: auto;
+  padding-left: 15%;
 }

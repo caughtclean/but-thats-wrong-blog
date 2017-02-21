@@ -16,10 +16,18 @@ export default class Example extends Component {
 
   render() {
     const {epComments} = this.props;
+    const style = {  position: 'absolute',
+      top: '90%',
+      left: 0,
+      right: 0,
+      bottom: 0
+    };
         return (
-          <FacebookProvider appID="195714124244006">
-            <Comments href={epComments} />
-          </FacebookProvider>
+          <div style={style}>
+            <FacebookProvider appID="195714124244006">
+              <Comments href={epComments} />
+            </FacebookProvider>
+          </div>
 
         );
   }
