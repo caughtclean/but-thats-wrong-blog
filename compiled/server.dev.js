@@ -6840,7 +6840,7 @@ var Video = function Video(_ref) {
   var episodeNumber = base.concat(episode);
   return _react2.default.createElement(
     'div',
-    { className: cx('video') },
+    { className: 'video' },
     _react2.default.createElement(
       'h1',
       null,
@@ -10040,10 +10040,7 @@ var Example = function (_Component) {
       var epComments = this.props.epComments;
 
       var style = { position: 'absolute',
-        top: '90%',
-        left: 0,
-        right: 0,
-        bottom: 0
+        margin: 'auto'
       };
       return _react2.default.createElement(
         'div',

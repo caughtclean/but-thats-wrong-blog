@@ -17,10 +17,9 @@ export default class Example extends Component {
   render() {
     const {epComments} = this.props;
     const style = {  position: 'absolute',
-      top: '90%',
-      left: 0,
-      right: 0,
-      bottom: 0
+      top: '100%',
+      width: "full",
+      left: "30%"
     };
         return (
           <div style={style}>
