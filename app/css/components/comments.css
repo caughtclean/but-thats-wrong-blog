@@ -4,12 +4,22 @@
 @import '../common/button';
 @import '../common/input';
 
-#commentsSection {
-  position: absolute;
-  top: 150%;
-  left: 0%;
-  right: 0%;
-  bottom: 0;
-  margin: auto;
-  padding-left: 15%;
+
+
+.comments {
+    top: 100%;
+    margin: auto;
+    padding-left: 25%;
+    height: 100%;
+    overflow: scroll;
+    padding-top: 50%;
+}
+
+@media screen and (max-width: 500px) {
+   .comments {
+    margin-right: -100%;
+    padding-top: 120%;
+    height: 100%;
+    overflow: scroll;
+  }
 }

@@ -20,6 +20,10 @@ body {
   font-smoothing: antialiased;
 }
 
+.video>.comments {
+  position: absolute;
+  top: 100%;
+}
 
 /* Add your global styles below... */
 

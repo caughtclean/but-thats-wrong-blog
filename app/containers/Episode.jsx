@@ -68,7 +68,7 @@ class Episode extends Component {
 
     if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
       return (
-          <Comments id="comments"
+          <Comments
           epComments={comments1}
           key={this.state.episodeNum}
           />
@@ -76,7 +76,7 @@ class Episode extends Component {
     }
     if (this.state.episodeNum === 2) {
       return (
-          <Comments id="comments"
+          <Comments
           epComments={comments2}
           key={this.state.episodeNum}
           />
@@ -84,7 +84,7 @@ class Episode extends Component {
     }
     if (this.state.episodeNum === 3) {
       return (
-          <Comments id="comments"
+          <Comments
           epComments={comments3}
           key={this.state.episodeNum}
           />
@@ -92,7 +92,7 @@ class Episode extends Component {
     }
     if (this.state.episodeNum === 4) {
       return (
-          <Comments id="comments"
+          <Comments
           epComments={comments4}
           key={this.state.episodeNum}
           />

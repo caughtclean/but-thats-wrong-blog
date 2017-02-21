@@ -1,7 +1,10 @@
 import React, { Component} from 'react';
 import FacebookProvider, { Comments } from 'react-facebook';
 import Episode from '../containers/Episode';
+import classNames from 'classnames/bind';
 import styles from '../css/components/comments';
+
+const cx = classNames.bind(styles);
 
 export default class Example extends Component {
 
@@ -16,17 +19,12 @@ export default class Example extends Component {
 
   render() {
     const {epComments} = this.props;
-    const style = {  position: 'absolute',
-      top: '100%',
-      width: "full",
-      left: "30%"
-    };
         return (
-          <div style={style}>
             <FacebookProvider appID="195714124244006">
+            <div className={cx('comments')}>
               <Comments href={epComments} />
+            </div>
             </FacebookProvider>
-          </div>
 
         );
   }
