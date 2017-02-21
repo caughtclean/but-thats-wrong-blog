@@ -8,6 +8,9 @@
   height: 100%;
   font-weight: normal;
   font-smoothing: antialiased;
+}._3DHCUp8qAFdvgImMpbFdzI>.ebZvb4gnX6QrWuCaFwNRu {
+  position: absolute;
+  top: 100%;
 }/* Add your global styles below... *//* ex:
 
 :global {
@@ -25,26 +28,28 @@
   margin: auto;
 
 }
-#_2xWQrHCepmCwLbXT0X2L8A {
-  position: absolute;
-  top: 150%;
-}
+
 .BEUb_6ASce4ip-KVQ9-JY {
   color: red;
 }
 h1 {
   text-align: center;
 }
-._288AAARuZ5vhlawXJU2XRA {
-  position: absolute;
-  top: 100%;
-}#c5CphX9lRcgzLu1zde8Da {
-  position: absolute;
-  top: 150%;
-  left: 0%;
-  right: 0%;
-  bottom: 0;
-  margin: auto;
-  padding-left: 15%;
+
+._2RHnVb7UbdZCb5c6HO6ZeV {
+    top: 100%;
+    margin: auto;
+    padding-left: 25%;
+    height: 100%;
+    overflow: scroll;
+    padding-top: 50%;
+}
+@media screen and (max-width: 500px) {
+   ._2RHnVb7UbdZCb5c6HO6ZeV {
+    margin-right: -100%;
+    padding-top: 120%;
+    height: 100%;
+    overflow: scroll;
+  }
 }
 /*# sourceMappingURL=main.css.map*/
