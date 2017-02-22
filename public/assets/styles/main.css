@@ -35,14 +35,18 @@
 h1 {
   text-align: center;
 }
+@media screen and (max-width: 500px) {
+   h1 {
+        position: absolute;
+    left: 100%;
+  }
+}._2RHnVb7UbdZCb5c6HO6ZeV {
 
-._2RHnVb7UbdZCb5c6HO6ZeV {
-    top: 100%;
     margin: auto;
     padding-left: 25%;
     height: 100%;
     overflow: scroll;
-    padding-top: 50%;
+    padding-top: 40%;
 }
 @media screen and (max-width: 500px) {
    ._2RHnVb7UbdZCb5c6HO6ZeV {

@@ -11,16 +11,11 @@ const createApp = (store, props) => renderToString(
   </Provider>
 );
 
-const buildPage = ({ componentHTML, initialState, headAssets }) => {
+const buildPage = ({ componentHTML, initialState }) => {
   return `
 <!doctype html>
 <html>
   <head>
-<meta name="viewport" content="width=device-width">
-    ${headAssets.title.toString()}
-    ${headAssets.meta.toString()}
-    ${headAssets.link.toString()}
-    ${createTrackingScript()}
   </head>
   <body>
     <div id="app">${componentHTML}</div>
@@ -33,7 +28,6 @@ const buildPage = ({ componentHTML, initialState, headAssets }) => {
 export default (store, props) => {
   const initialState = store.getState();
   const componentHTML = createApp(store, props);
-  const headAssets = Helmet.rewind();
-  return buildPage({ componentHTML, initialState, headAssets });
+  return buildPage({ componentHTML, initialState});
 };
 
