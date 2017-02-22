@@ -4,13 +4,34 @@
 @import '../common/button';
 @import '../common/input';
 
-.video>iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
 
+.video {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px; height: 0; overflow: hidden;
 }
+
+
+.video iframe,
+.video object,
+.video embed {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+width: 75%;
+height: 75%;
+margin: auto;
+}
+
+@media screen and (max-width: 40.5em) {
+  .video iframe,
+  .video object,
+  .video embed {
+  width: 100%;
+  height: 100%;
+  }
+}
+
 

@@ -12,10 +12,8 @@ const Video = ({episode, next, header}) => {
   const episodeNumber = base.concat(episode)
   return (
     <div className={cx('video')}>
-      <h1>{header}</h1>
-      {next}
       <iframe width="854" height="480"
-      src={episodeNumber} frameborder="0" allowfullscreen>
+      src={episodeNumber} >
       </iframe>
     </div>
 
