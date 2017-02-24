@@ -45,7 +45,7 @@ const linkAssets = () => {
     { rel: 'icon', sizes: '192x192', href: chromeFavicon },
     // Add to homescreen for Safari on IOS
     { rel: 'apple-touch-icon', sizes: '152x152', href: appleFavicon },
-    { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css', type: 'text/css' },
+    { rel: 'stylesheet', href: '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">', type: 'text/css' },
     { rel: 'stylesheet', href: '/assets/styles/main.css' }
     // SEO: If your mobile URL is different from the desktop URL,
     // add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones

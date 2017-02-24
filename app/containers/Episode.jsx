@@ -4,11 +4,14 @@ import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
 import styles from '../css/components/episode';
 import Video from '../components/Video';
-import FacebookProvider from 'react-facebook';
+import FacebookProvider  from 'react-facebook';
 import Comments from '../components/Comments';
 import Login from '../components/Login';
+import Like from '../components/Like';
 import CommentsCount from '../components/CommentsCount';
 import {ButtonToolbar, Button} from 'react-bootstrap'
+import { incrementCount,
+  decrementCount } from '../actions/vote';
 
 
 
@@ -24,44 +27,99 @@ class Episode extends Component {
 
   }
 
-
-
-
-
-
-
    episodeSelector() {
     if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
       return(
       <div className='selectors'>
-       <button
-          className='button'
-          onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode</button>
+        <ButtonToolbar>
+        <div className={cx('next')}>
+          <Button
+            bsSize="large"
+            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
+          </Button>
+        </div>
+        </ButtonToolbar>
       </div>
       )
     }
     if (this.state.episodeNum === 4) {
       return(
       <div className='selectors'>
-       <button
-            className='button'
-            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode</button>
+        <ButtonToolbar>
+        <div className={cx('prev')}>
+          <Button
+            bsSize="large"
+            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode
+          </Button>
+        </div>
+        </ButtonToolbar>
       </div>
       )
     }
     else {
       return(
-        <div>
-         <button
-            className='next'
-            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode</button>
-         <button
-            className='prev'
-            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode</button>
+        <div className={cx('selectors')}>
+          <ButtonToolbar>
+            <div className={cx('next')}>
+              <Button
+                bsSize="large"
+                onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
+              </Button>
+            </div>
+            <div className={cx('prev')}>
+              <Button
+              bsSize="large"
+              onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode
+            </Button>
+            </div>
+            </ButtonToolbar>
         </div>
       )
     }
   }
+
+
+ likeDislike() {
+    const {likes1, likes2, likes3, likes4, dislikes1, dislikes2, dislikes3, dislikes4} = this.props;
+
+    if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
+      return (
+          <Like
+          likes={likes1}
+          dislikes={dislikes1}
+          key= "5"
+          />
+      )
+    }
+    if (this.state.episodeNum === 2) {
+      return (
+          <Like
+          likes={likes2}
+          dislikes={dislikes2}
+          key= "6"
+          />
+      )
+    }
+    if (this.state.episodeNum === 3) {
+      return (
+          <Like
+          likes={likes3}
+          dislikes={dislikes3}
+          key= "7"
+          />
+      )
+    }
+    if (this.state.episodeNum === 4) {
+      return (
+          <Like
+          likes={likes4}
+          dislikes={dislikes4}
+          key= "8"
+          />
+      )
+    }
+  }
+
 
   commentSection () {
     const {comments1, comments2, comments3, comments4} = this.props;
@@ -100,6 +158,7 @@ class Episode extends Component {
     }
   }
 
+
   episodeData() {
     const {episode} = this.props;
     if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
@@ -116,16 +175,29 @@ class Episode extends Component {
     }
   }
 
-  render() {
-    const {episode, episodeSelector, episodeData} = this.props;
+  logo() {
     return (
+        <img className={cx('logo')} src={require('../images/Logo.png')} />
+      )
+  }
+
+
+
+  render() {
+    const {episode, episodeSelector, episodeData, buttonsInstance, onIncrement, logo } = this.props;
+    return (
+
       <div className='video'>
+      {this.logo()}
         <Video
           episode={this.episodeData().url}
           header={this.episodeData().header}
         />
-        {this.commentSection()}
+
+        {this.likeDislike()}
         {this.episodeSelector()}
+        {this.commentSection()}
+
       </div>
 
     )
@@ -141,8 +213,16 @@ function mapStateToProps(state) {
     comments1: state.episode.episode1.comments,
     comments2: state.episode.episode2.comments,
     comments3: state.episode.episode3.comments,
-    comments4: state.episode.episode4.comments
+    comments4: state.episode.episode4.comments,
+    likes1: state.episode.episode1.likes,
+    likes2: state.episode.episode2.likes,
+    likes3: state.episode.episode3.likes,
+    likes4: state.episode.episode4.likes,
+    dislikes1: state.episode.episode1.dislikes,
+    dislikes2: state.episode.episode2.dislikes,
+    dislikes3: state.episode.episode3.dislikes,
+    dislikes4: state.episode.episode4.dislikes
   };
 }
 
-export default connect(mapStateToProps)(Episode);
+export default connect(mapStateToProps, { incrementCount, decrementCount })(Episode);

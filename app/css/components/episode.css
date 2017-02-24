@@ -6,9 +6,24 @@
 
 
 
+.likeContainer {
+  float: right;
+}
 
-.button {
+.logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.next {
   color: red;
+  float: right;
+}
+
+.prev {
+  float: left;
 }
 
 h1 {

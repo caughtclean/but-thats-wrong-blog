@@ -16,6 +16,7 @@ const buildPage = ({ componentHTML, initialState }) => {
 <!doctype html>
 <html>
   <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
   </head>
   <body>
     <div id="app">${componentHTML}</div>

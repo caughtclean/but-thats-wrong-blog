@@ -25,6 +25,7 @@ const topic = (
     default:
       return state;
   }
+  return state;
 };
 
 const topics = (
