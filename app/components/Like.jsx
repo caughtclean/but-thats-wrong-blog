@@ -23,12 +23,14 @@ export default class Example extends Component {
     <div className={cx('likeContainer')}>
       <FacebookProvider appID="195714124244006">
         <div className={cx('like')}>
-          <Like href={likes} />
+          <span>Like if you think I am wrong (I am not)</span>
+          <Like href={dislikes} />
         </div>
       </FacebookProvider>
       <FacebookProvider appID="195714124244006">
         <div className={cx('dislike')}>
-          <Like href={dislikes} />
+          <span>Like if you think I am right (I am)</span>
+          <Like href={likes} />
         </div>
       </FacebookProvider>
     </div>

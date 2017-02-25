@@ -3,7 +3,7 @@ import * as types from '../types';
 
 const episode1 = (state =
   { url: "yFTSHil4Owk",
-    header: "EPISODE 1",
+    header: "EPISODE 1: When Movies Used To Be Fun",
     comments: "http://www.butthatswrong.com/comments/episode1",
     likes: "http://www.butthatswrong.com/comments/episode1likes",
     dislikes: "http://www.butthatswrong.com/comments/episode1dislikes"

@@ -3524,10 +3524,6 @@ var _Login = __webpack_require__(121);
 
 var _Login2 = _interopRequireDefault(_Login);
 
-var _Logo = __webpack_require__(276);
-
-var _Logo2 = _interopRequireDefault(_Logo);
-
 var _Like = __webpack_require__(120);
 
 var _Like2 = _interopRequireDefault(_Like);
@@ -3573,22 +3569,18 @@ var Episode = function (_Component) {
       if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
         return _react2.default.createElement(
           'div',
-          { className: 'selectors' },
+          { className: cx('selectors') },
           _react2.default.createElement(
-            _reactBootstrap.ButtonToolbar,
+            _reactBootstrap.ButtonGroup,
             null,
             _react2.default.createElement(
-              'div',
-              { className: cx('next') },
-              _react2.default.createElement(
-                _reactBootstrap.Button,
-                {
-                  bsSize: 'large',
-                  onClick: function onClick() {
-                    return _this2.setState({ episodeNum: _this2.state.episodeNum + 1 });
-                  } },
-                'Next Episode'
-              )
+              _reactBootstrap.Button,
+              {
+                bsStyle: 'warning',
+                onClick: function onClick() {
+                  return _this2.setState({ episodeNum: _this2.state.episodeNum + 1 });
+                } },
+              'Next Episode'
             )
           )
         );
@@ -3596,22 +3588,18 @@ var Episode = function (_Component) {
       if (this.state.episodeNum === 4) {
         return _react2.default.createElement(
           'div',
-          { className: 'selectors' },
+          { className: cx('selectors') },
           _react2.default.createElement(
-            _reactBootstrap.ButtonToolbar,
+            _reactBootstrap.ButtonGroup,
             null,
             _react2.default.createElement(
-              'div',
-              { className: cx('prev') },
-              _react2.default.createElement(
-                _reactBootstrap.Button,
-                {
-                  bsSize: 'large',
-                  onClick: function onClick() {
-                    return _this2.setState({ episodeNum: _this2.state.episodeNum - 1 });
-                  } },
-                'Previous Episode'
-              )
+              _reactBootstrap.Button,
+              {
+                bsStyle: 'warning',
+                onClick: function onClick() {
+                  return _this2.setState({ episodeNum: _this2.state.episodeNum - 1 });
+                } },
+              'Previous Episode'
             )
           )
         );
@@ -3620,33 +3608,25 @@ var Episode = function (_Component) {
           'div',
           { className: cx('selectors') },
           _react2.default.createElement(
-            _reactBootstrap.ButtonToolbar,
+            _reactBootstrap.ButtonGroup,
             null,
             _react2.default.createElement(
-              'div',
-              { className: cx('next') },
-              _react2.default.createElement(
-                _reactBootstrap.Button,
-                {
-                  bsSize: 'large',
-                  onClick: function onClick() {
-                    return _this2.setState({ episodeNum: _this2.state.episodeNum + 1 });
-                  } },
-                'Next Episode'
-              )
+              _reactBootstrap.Button,
+              {
+                bsStyle: 'warning',
+                onClick: function onClick() {
+                  return _this2.setState({ episodeNum: _this2.state.episodeNum - 1 });
+                } },
+              'Previous Episode'
             ),
             _react2.default.createElement(
-              'div',
-              { className: cx('prev') },
-              _react2.default.createElement(
-                _reactBootstrap.Button,
-                {
-                  bsSize: 'large',
-                  onClick: function onClick() {
-                    return _this2.setState({ episodeNum: _this2.state.episodeNum - 1 });
-                  } },
-                'Previous Episode'
-              )
+              _reactBootstrap.Button,
+              {
+                bsStyle: 'warning',
+                onClick: function onClick() {
+                  return _this2.setState({ episodeNum: _this2.state.episodeNum + 1 });
+                } },
+              'Next Episode'
             )
           )
         );
@@ -3749,6 +3729,11 @@ var Episode = function (_Component) {
       }
     }
   }, {
+    key: 'logo',
+    value: function logo() {
+      return _react2.default.createElement('img', { className: cx('logo'), src: __webpack_require__(276) });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props3 = this.props,
@@ -3757,18 +3742,26 @@ var Episode = function (_Component) {
           episodeData = _props3.episodeData,
           buttonsInstance = _props3.buttonsInstance,
           onIncrement = _props3.onIncrement,
-          Logo = _props3.Logo;
+          logo = _props3.logo;
 
       return _react2.default.createElement(
         'div',
         { className: 'video' },
-        _react2.default.createElement('img', { src: Logo }),
-        this.likeDislike(),
+        this.logo(),
         _react2.default.createElement(_Video2.default, {
-          episode: this.episodeData().url,
-          header: this.episodeData().header
+          episode: this.episodeData().url
         }),
+        _react2.default.createElement(
+          'div',
+          { className: cx('header') },
+          _react2.default.createElement(
+            'h3',
+            null,
+            this.episodeData().header
+          )
+        ),
         this.episodeSelector(),
+        this.likeDislike(),
         this.commentSection()
       );
     }
@@ -10318,7 +10311,12 @@ var Example = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: cx('like') },
-            _react2.default.createElement(_reactFacebook.Like, { href: likes })
+            _react2.default.createElement(
+              'span',
+              null,
+              'Like if you think I am wrong (I am not)'
+            ),
+            _react2.default.createElement(_reactFacebook.Like, { href: dislikes })
           )
         ),
         _react2.default.createElement(
@@ -10327,7 +10325,12 @@ var Example = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: cx('dislike') },
-            _react2.default.createElement(_reactFacebook.Like, { href: dislikes })
+            _react2.default.createElement(
+              'span',
+              null,
+              'Like if you think I am right (I am)'
+            ),
+            _react2.default.createElement(_reactFacebook.Like, { href: likes })
           )
         )
       );
@@ -10716,7 +10719,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var episode1 = function episode1() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { url: "yFTSHil4Owk",
-    header: "EPISODE 1",
+    header: "EPISODE 1: When Movies Used To Be Fun",
     comments: "http://www.butthatswrong.com/comments/episode1",
     likes: "http://www.butthatswrong.com/comments/episode1likes",
     dislikes: "http://www.butthatswrong.com/comments/episode1dislikes"
@@ -12960,9 +12963,11 @@ module.exports = {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"likeContainer": "_3B77MjLktJh3qoTvMXGzVJ",
+	"logo": "_3WOpljkcJkYGuLHUiVAXnr",
+	"header": "_3T-6zlHU5Y1vvC_BARwKBB",
 	"next": "_3HJ9fRs0cNcuoEmg1kYb0",
-	"prev": "_3oMS4bGbZobEJOzYU4Vhmb"
+	"prev": "_3oMS4bGbZobEJOzYU4Vhmb",
+	"selectors": "_3GGHZ8qxanGqM9QWBVmHf2"
 };
 
 /***/ }),
@@ -12970,7 +12975,9 @@ module.exports = {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"like": "_2p95kB4LxxbtuKsyz4Pj5u"
+	"like": "_2p95kB4LxxbtuKsyz4Pj5u",
+	"dislike": "_1l4vJ0gfU3eXLVL4oBoTFf",
+	"facebook": "_29pRPDhkiii4gnu9pEUE8M"
 };
 
 /***/ }),
@@ -12988,7 +12995,8 @@ module.exports = {
 module.exports = {
 	"app": "_36NQSpzGCuxg-jneTII5ou",
 	"video": "_3DHCUp8qAFdvgImMpbFdzI",
-	"comments": "ebZvb4gnX6QrWuCaFwNRu"
+	"comments": "ebZvb4gnX6QrWuCaFwNRu",
+	"header": "_2CO1_6SbwVhP5oyFNP2GKx"
 };
 
 /***/ }),
@@ -24765,7 +24773,7 @@ module.exports = traverseAllChildren;
 /* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "190a915bff13b6e85d392d745e67727a.png";
+module.exports = __webpack_require__.p + "859b76b65dd94bed423ca25f0838f44f.png";
 
 /***/ }),
 /* 277 */

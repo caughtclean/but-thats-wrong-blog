@@ -1,9 +1,44 @@
 
 
-
-
-
-
 .like {
+  position: inherit;
   float: right;
+  }
+
+.dislike {
+  position: inherit;
+  float: right;
+
+}
+
+@media screen and (max-width: 800px) {
+  .like {
+    position: inherit;
+    margin-left: -20%;
+
+  }
+
+  .like>span {
+      position: inherit;
+      margin-left: -20%;
+  }
+
+  .dislike>span {
+      position: inherit;
+      margin-left: -20%;
+    }
+
+  .dislike {
+
+
+  }
+
+  .likeContainer {
+    float:left;
+    padding-left: 40%;
+
+  }
+
+
+
 }

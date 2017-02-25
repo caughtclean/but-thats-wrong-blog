@@ -9,7 +9,7 @@ import Comments from '../components/Comments';
 import Login from '../components/Login';
 import Like from '../components/Like';
 import CommentsCount from '../components/CommentsCount';
-import {ButtonToolbar, Button} from 'react-bootstrap'
+import {ButtonToolbar, Button, ButtonGroup} from 'react-bootstrap'
 import { incrementCount,
   decrementCount } from '../actions/vote';
 
@@ -30,49 +30,41 @@ class Episode extends Component {
    episodeSelector() {
     if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
       return(
-      <div className='selectors'>
-        <ButtonToolbar>
-        <div className={cx('next')}>
+      <div className={cx('selectors')}>
+        <ButtonGroup>
           <Button
-            bsSize="large"
+            bsStyle="warning"
             onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
           </Button>
-        </div>
-        </ButtonToolbar>
+        </ButtonGroup>
       </div>
       )
     }
     if (this.state.episodeNum === 4) {
       return(
-      <div className='selectors'>
-        <ButtonToolbar>
-        <div className={cx('prev')}>
+      <div className={cx('selectors')}>
+        <ButtonGroup>
           <Button
-            bsSize="large"
+            bsStyle="warning"
             onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode
           </Button>
-        </div>
-        </ButtonToolbar>
+        </ButtonGroup>
       </div>
       )
     }
     else {
       return(
         <div className={cx('selectors')}>
-          <ButtonToolbar>
-            <div className={cx('next')}>
-              <Button
-                bsSize="large"
-                onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
+            <ButtonGroup>
+                <Button
+                  bsStyle="warning"
+                  onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode
+                </Button>
+                <Button
+                  bsStyle="warning"
+                  onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
               </Button>
-            </div>
-            <div className={cx('prev')}>
-              <Button
-              bsSize="large"
-              onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode
-            </Button>
-            </div>
-            </ButtonToolbar>
+            </ButtonGroup>
         </div>
       )
     }
@@ -191,11 +183,12 @@ class Episode extends Component {
       {this.logo()}
         <Video
           episode={this.episodeData().url}
-          header={this.episodeData().header}
         />
-
-        {this.likeDislike()}
+        <div className={cx('header')}>
+        <h3>{this.episodeData().header}</h3>
+        </div>
         {this.episodeSelector()}
+        {this.likeDislike()}
         {this.commentSection()}
 
       </div>

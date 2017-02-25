@@ -9,6 +9,7 @@
 
 
 body {
+  background-color: #4ABDAC;
   margin: 0;
   font-family: var(--fontMontserrat);
 }
@@ -24,6 +25,10 @@ body {
   position: absolute;
   top: 100%;
 }
+
+.header {
+      font-size: 20px;
+    }
 
 /* Add your global styles below... */
 
