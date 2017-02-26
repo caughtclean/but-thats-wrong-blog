@@ -3574,6 +3574,20 @@ var Episode = function (_Component) {
             _reactBootstrap.ButtonGroup,
             null,
             _react2.default.createElement(
+              _reactBootstrap.DropdownButton,
+              { bsStyle: 'default', title: 'Episodes', noCaret: true, id: 'dropdown-no-caret' },
+              _react2.default.createElement(
+                _reactBootstrap.MenuItem,
+                { eventKey: '1' },
+                'Episode 1'
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.MenuItem,
+                { eventKey: '2' },
+                'Episode 2'
+              )
+            ),
+            _react2.default.createElement(
               _reactBootstrap.Button,
               {
                 bsStyle: 'warning',
@@ -3599,7 +3613,21 @@ var Episode = function (_Component) {
                 onClick: function onClick() {
                   return _this2.setState({ episodeNum: _this2.state.episodeNum - 1 });
                 } },
-              'Previous Episode'
+              'Prev Episode'
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.DropdownButton,
+              { bsStyle: 'default', title: 'Episodes', noCaret: true, id: 'dropdown-no-caret' },
+              _react2.default.createElement(
+                _reactBootstrap.MenuItem,
+                { eventKey: '1' },
+                'Episode 1'
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.MenuItem,
+                { eventKey: '2' },
+                'Episode 2'
+              )
             )
           )
         );
@@ -3617,7 +3645,25 @@ var Episode = function (_Component) {
                 onClick: function onClick() {
                   return _this2.setState({ episodeNum: _this2.state.episodeNum - 1 });
                 } },
-              'Previous Episode'
+              'Prev Episode'
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.DropdownButton,
+              { bsStyle: 'default', title: 'Episodes', noCaret: true, id: 'dropdown-no-caret' },
+              _react2.default.createElement(
+                _reactBootstrap.MenuItem,
+                { eventKey: '1', onSelect: function onSelect() {
+                    return _this2.setState({ episodeNum: 1 });
+                  } },
+                'Episode 1'
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.MenuItem,
+                { eventKey: '2', onSelect: function onSelect() {
+                    return _this2.setState({ episodeNum: 2 });
+                  } },
+                'Episode 2'
+              )
             ),
             _react2.default.createElement(
               _reactBootstrap.Button,
@@ -3736,6 +3782,8 @@ var Episode = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       var _props3 = this.props,
           episode = _props3.episode,
           episodeSelector = _props3.episodeSelector,
@@ -3762,7 +3810,22 @@ var Episode = function (_Component) {
         ),
         this.episodeSelector(),
         this.likeDislike(),
-        this.commentSection()
+        _react2.default.createElement(
+          _reactBootstrap.ButtonGroup,
+          { vertical: true, block: true },
+          _react2.default.createElement(
+            _reactBootstrap.Button,
+            { className: cx('commentButon'), onClick: function onClick() {
+                return _this3.setState({ open: !_this3.state.open });
+              } },
+            'COMMENTS'
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Panel,
+            { collapsible: true, expanded: this.state.open },
+            this.commentSection()
+          )
+        )
       );
     }
   }]);
@@ -12997,8 +13060,6 @@ module.exports = {
 module.exports = {
 	"logo": "_3WOpljkcJkYGuLHUiVAXnr",
 	"header": "_3T-6zlHU5Y1vvC_BARwKBB",
-	"next": "_3HJ9fRs0cNcuoEmg1kYb0",
-	"prev": "_3oMS4bGbZobEJOzYU4Vhmb",
 	"selectors": "_3GGHZ8qxanGqM9QWBVmHf2"
 };
 
@@ -13009,8 +13070,7 @@ module.exports = {
 module.exports = {
 	"well": "_3h88bOqzUfTUPVulRsq8xj",
 	"like": "_2p95kB4LxxbtuKsyz4Pj5u",
-	"dislike": "_1l4vJ0gfU3eXLVL4oBoTFf",
-	"span": "_1bwmYXOJS6K5X9eoDSQ00k"
+	"dislike": "_1l4vJ0gfU3eXLVL4oBoTFf"
 };
 
 /***/ }),
@@ -13026,6 +13086,7 @@ module.exports = {
 /***/ (function(module, exports) {
 
 module.exports = {
+	"table": "yE_fJ190gkjCnmyF2tYAL",
 	"app": "_36NQSpzGCuxg-jneTII5ou",
 	"video": "_3DHCUp8qAFdvgImMpbFdzI",
 	"comments": "ebZvb4gnX6QrWuCaFwNRu",

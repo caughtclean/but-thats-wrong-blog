@@ -9,7 +9,7 @@ import Comments from '../components/Comments';
 import Login from '../components/Login';
 import Like from '../components/Like';
 import CommentsCount from '../components/CommentsCount';
-import {ButtonToolbar, Button, ButtonGroup} from 'react-bootstrap'
+import {ButtonToolbar, Button, ButtonGroup, Panel, DropdownButton, MenuItem} from 'react-bootstrap'
 import { incrementCount,
   decrementCount } from '../actions/vote';
 
@@ -22,7 +22,7 @@ class Episode extends Component {
    constructor(props) {
     super(props);
     this.state = {
-     episodeNum: 1
+     episodeNum: ""
     };
 
   }
@@ -32,6 +32,10 @@ class Episode extends Component {
       return(
       <div className={cx('selectors')}>
         <ButtonGroup>
+        <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret">
+          <MenuItem eventKey="1" onSelect={ ()=> this.setState({ episodeNum: 1 })}>Episode 1</MenuItem>
+          <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
+        </DropdownButton>
           <Button
             bsStyle="warning"
             onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
@@ -46,8 +50,12 @@ class Episode extends Component {
         <ButtonGroup>
           <Button
             bsStyle="warning"
-            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode
+            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Prev Episode
           </Button>
+          <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret">
+            <MenuItem eventKey="1" onSelect={ ()=> this.setState({ episodeNum: 1 })}>Episode 1</MenuItem>
+            <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
+          </DropdownButton>
         </ButtonGroup>
       </div>
       )
@@ -58,8 +66,12 @@ class Episode extends Component {
             <ButtonGroup>
                 <Button
                   bsStyle="warning"
-                  onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Previous Episode
+                  onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Prev Episode
                 </Button>
+                <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret">
+                  <MenuItem eventKey="1" onSelect={ ()=> this.setState({ episodeNum: 1 })}>Episode 1</MenuItem>
+                  <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
+                </DropdownButton>
                 <Button
                   bsStyle="warning"
                   onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
@@ -189,7 +201,14 @@ class Episode extends Component {
         </div>
         {this.episodeSelector()}
         {this.likeDislike()}
-        {this.commentSection()}
+        <ButtonGroup vertical block>
+          <Button className={cx('commentButon')} onClick={ ()=> this.setState({ open: !this.state.open })}>
+          COMMENTS
+          </Button>
+          <Panel collapsible expanded={this.state.open}>
+            {this.commentSection()}
+          </Panel>
+        </ButtonGroup>
 
       </div>
 
