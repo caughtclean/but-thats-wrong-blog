@@ -21,15 +21,15 @@ export default class Example extends Component {
   render() {
     const {likes, dislikes} = this.props;
     return (
-  <Grid>
+      <Grid>
     <Row className="show-grid">
       <div className={cx('likeContainer')}>
         <Col xs={12} md={4} lg={6}>
           <FacebookProvider appID="195714124244006">
           <Well className={cx('well')}>
             <div className={cx('dislike')}>
-              <span>Like this if you agree (You have good opinons).</span>
-              <Like href={likes} />
+              <span>Like this if you disagree (You are wrong).</span>
+              <Like href={dislikes} />
             </div>
           </Well>
           </FacebookProvider>

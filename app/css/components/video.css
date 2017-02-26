@@ -7,7 +7,7 @@
 
 .video {
 position: relative;
-padding-bottom: 56.25%;
+padding-bottom: 62%;
 padding-top: 30px; height: 0; overflow: hidden;
 }
 
@@ -16,13 +16,15 @@ padding-top: 30px; height: 0; overflow: hidden;
 .video object,
 .video embed {
 position: absolute;
-top: 0;
+top: 15%;
 left: 0;
 right: 0;
 bottom: 0;
 width: 75%;
 height: 75%;
 margin: auto;
+margin-top: 0%;
+margin-bottom: 0%;
 }
 
 @media screen and (max-width: 40.5em) {
@@ -31,6 +33,8 @@ margin: auto;
   .video embed {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0%;
   }
 }
 

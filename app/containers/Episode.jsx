@@ -8,8 +8,9 @@ import FacebookProvider  from 'react-facebook';
 import Comments from '../components/Comments';
 import Login from '../components/Login';
 import Like from '../components/Like';
+import Dislike from '../components/Dislike';
 import CommentsCount from '../components/CommentsCount';
-import {ButtonToolbar, Button, ButtonGroup, Panel, DropdownButton, MenuItem} from 'react-bootstrap'
+import {ButtonToolbar, Button, ButtonGroup, Panel, DropdownButton, MenuItem, Row, Col, Grid, Accordion} from 'react-bootstrap'
 import { incrementCount,
   decrementCount } from '../actions/vote';
 
@@ -37,6 +38,7 @@ class Episode extends Component {
           <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
         </DropdownButton>
           <Button
+            className={cx('next')}
             bsStyle="warning"
             onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
           </Button>
@@ -49,6 +51,7 @@ class Episode extends Component {
       <div className={cx('selectors')}>
         <ButtonGroup>
           <Button
+            className={cx('prev')}
             bsStyle="warning"
             onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Prev Episode
           </Button>
@@ -65,6 +68,7 @@ class Episode extends Component {
         <div className={cx('selectors')}>
             <ButtonGroup>
                 <Button
+                  className={cx('prev')}
                   bsStyle="warning"
                   onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Prev Episode
                 </Button>
@@ -73,6 +77,7 @@ class Episode extends Component {
                   <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
                 </DropdownButton>
                 <Button
+                  className={cx('next')}
                   bsStyle="warning"
                   onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
               </Button>
@@ -83,7 +88,7 @@ class Episode extends Component {
   }
 
 
- likeDislike() {
+ like() {
     const {likes1, likes2, likes3, likes4, dislikes1, dislikes2, dislikes3, dislikes4} = this.props;
 
     if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
@@ -119,6 +124,47 @@ class Episode extends Component {
           likes={likes4}
           dislikes={dislikes4}
           key= "8"
+          />
+      )
+    }
+  }
+
+dislike() {
+    const {likes1, likes2, likes3, likes4, dislikes1, dislikes2, dislikes3, dislikes4} = this.props;
+
+    if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
+      return (
+          <Dislike
+          likes={likes1}
+          dislikes={dislikes1}
+          key= "9"
+          />
+      )
+    }
+    if (this.state.episodeNum === 2) {
+      return (
+          <Dislike
+          likes={likes2}
+          dislikes={dislikes2}
+          key= "10"
+          />
+      )
+    }
+    if (this.state.episodeNum === 3) {
+      return (
+          <Dislike
+          likes={likes3}
+          dislikes={dislikes3}
+          key= "11"
+          />
+      )
+    }
+    if (this.state.episodeNum === 4) {
+      return (
+          <Dislike
+          likes={likes4}
+          dislikes={dislikes4}
+          key= "12"
           />
       )
     }
@@ -181,7 +227,9 @@ class Episode extends Component {
 
   logo() {
     return (
-        <img className={cx('logo')} src={require('../images/Logo.png')} />
+
+          <img className={cx('logo')} src={require('../images/Logo.png')} />
+
       )
   }
 
@@ -190,27 +238,40 @@ class Episode extends Component {
   render() {
     const {episode, episodeSelector, episodeData, buttonsInstance, onIncrement, logo } = this.props;
     return (
-
-      <div className='video'>
-      {this.logo()}
-        <Video
-          episode={this.episodeData().url}
-        />
-        <div className={cx('header')}>
-        <h3>{this.episodeData().header}</h3>
-        </div>
-        {this.episodeSelector()}
-        {this.likeDislike()}
-        <ButtonGroup vertical block>
-          <Button className={cx('commentButon')} onClick={ ()=> this.setState({ open: !this.state.open })}>
-          COMMENTS
-          </Button>
-          <Panel collapsible expanded={this.state.open}>
-            {this.commentSection()}
+      <Grid>
+        <div className='video'>
+        {this.logo()}
+          <Video
+            episode={this.episodeData().url}
+          />
+          <div className={cx('header')}>
+          <h3>{this.episodeData().header}</h3>
+          </div>
+          <Row className="show-grid">
+          <Col xs={12} md={12} lg={12}>
+            {this.episodeSelector()}
+          </Col>
+          <Col xs={12} md={6} lg={6}>
+          <Panel bsStyle="success" className={cx('likePanel')} collapsible header="Agree?">
+          {this.like()}
           </Panel>
-        </ButtonGroup>
-
-      </div>
+          </Col>
+          <Col xs={12} md={6} lg={6}>
+          <Panel className={cx('dislikePanel')} bsStyle="danger" collapsible header="Disagree?">
+          {this.dislike()}
+          </Panel>
+          </Col>
+          </Row>
+          <ButtonGroup vertical block>
+            <Button bsStyle="primary" bsSize="large" className={cx('commentButton')} onClick={ ()=> this.setState({ open: !this.state.open })}>
+            COMMENTS
+            </Button>
+            <Panel collapsible expanded={this.state.open}>
+              {this.commentSection()}
+            </Panel>
+          </ButtonGroup>
+        </div>
+      </Grid>
 
     )
   }

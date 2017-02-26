@@ -2,36 +2,31 @@
 
 
 .well {
-  text-align: center;
+  position: relative;
+  right: 0;
+  margin: 0;
+  left: 15%;
   font-size: 20px;
 
 }
 
 
-
-.like {
-
-
-  }
-
-.dislike {
-
-
+.well>iframe {
+  width: 50% !important;
 }
-
-
 
 
 @media screen and (max-width: 800px) {
 
 .well {
-  padding: 10px;
+  left: 0;
   font-size: 12px;
 }
 
 span, span * {
   width: 100% !important;
 }
+
 
 
 
