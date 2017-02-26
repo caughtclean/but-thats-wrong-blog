@@ -22,7 +22,7 @@ class Episode extends Component {
    constructor(props) {
     super(props);
     this.state = {
-     episodeNum: ""
+     episodeNum: 1
     };
 
   }

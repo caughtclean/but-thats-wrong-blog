@@ -1,8 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 * { box-sizing: border-box; }body {
+  background-color: #4ABDAC;
   margin: 0;
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}.yE_fJ190gkjCnmyF2tYAL {
+  width: 100% !important;
 }._36NQSpzGCuxg-jneTII5ou {
   padding: 8px 24px;
   height: 100%;
@@ -11,7 +14,9 @@
 }._3DHCUp8qAFdvgImMpbFdzI>.ebZvb4gnX6QrWuCaFwNRu {
   position: absolute;
   top: 100%;
-}/* Add your global styles below... *//* ex:
+}._2CO1_6SbwVhP5oyFNP2GKx {
+      font-size: 20px;
+    }/* Add your global styles below... *//* ex:
 
 :global {
   & .red { color: red; }
@@ -19,41 +24,110 @@
 }
 
 */
-._3AFeQNaKS9JIo5PnK96Vnd>iframe {
+._3AFeQNaKS9JIo5PnK96Vnd {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px; height: 0; overflow: hidden;
+}
+._3AFeQNaKS9JIo5PnK96Vnd iframe,
+._3AFeQNaKS9JIo5PnK96Vnd object,
+._3AFeQNaKS9JIo5PnK96Vnd embed {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+width: 75%;
+height: 75%;
+margin: auto;
+}
+@media screen and (max-width: 40.5em) {
+  ._3AFeQNaKS9JIo5PnK96Vnd iframe,
+  ._3AFeQNaKS9JIo5PnK96Vnd object,
+  ._3AFeQNaKS9JIo5PnK96Vnd embed {
+  width: 100%;
+  height: 100%;
+  }
+}
+
+
+._3WOpljkcJkYGuLHUiVAXnr {
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   margin: auto;
-
 }
-
-.BEUb_6ASce4ip-KVQ9-JY {
-  color: red;
-}
-h1 {
+._3T-6zlHU5Y1vvC_BARwKBB {
   text-align: center;
+  font-size: 20px;
+  margin-top: -8%;
 }
-@media screen and (max-width: 500px) {
-   h1 {
-        position: absolute;
-    left: 100%;
+@media screen and (max-width: 800px) {
+    ._3WOpljkcJkYGuLHUiVAXnr {
+      left: 0;
+      right: 0;
+      margin: auto;
+      position: relative;
+      width:100%;
+    }
+    ._3T-6zlHU5Y1vvC_BARwKBB {
+      font-size: 15px;
+      margin-top: -5%;
+    }
+
+}
+._3GGHZ8qxanGqM9QWBVmHf2 {
+    text-align: center;
+    padding-bottom: 3%;
   }
-}._2RHnVb7UbdZCb5c6HO6ZeV {
+
+
+._2RHnVb7UbdZCb5c6HO6ZeV {
 
     margin: auto;
     padding-left: 25%;
-    height: 100%;
-    overflow: scroll;
-    padding-top: 40%;
 }
-@media screen and (max-width: 500px) {
-   ._2RHnVb7UbdZCb5c6HO6ZeV {
-    margin-right: -100%;
-    padding-top: 120%;
-    height: 100%;
-    overflow: scroll;
+@media screen and (max-width: 800px) {
+    ._2RHnVb7UbdZCb5c6HO6ZeV {
+    padding-left:0%;
+    }
+}
+
+
+._3h88bOqzUfTUPVulRsq8xj {
+  text-align: center;
+  font-size: 20px;
+
+}
+
+
+
+._2p95kB4LxxbtuKsyz4Pj5u {
+
+
   }
+
+
+
+._1l4vJ0gfU3eXLVL4oBoTFf {
+
+
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+._3h88bOqzUfTUPVulRsq8xj {
+  padding: 10px;
+  font-size: 12px;
+}
+
+span, span * {
+  width: 100% !important;
+}
+
+
+
 }
 /*# sourceMappingURL=main.css.map*/
