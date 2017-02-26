@@ -1,43 +1,37 @@
 
 
-.like {
-  position: inherit;
-  float: right;
-  }
 
-.dislike {
-  position: inherit;
-  float: right;
+.well {
+  text-align: center;
+  font-size: 20px;
 
 }
 
+
+
+.like {
+
+
+  }
+
+.dislike {
+
+
+}
+
+
+
+
 @media screen and (max-width: 800px) {
-  .like {
-    position: inherit;
-    margin-left: -20%;
 
-  }
+.well {
+  padding: 10px;
+  font-size: 12px;
+}
 
-  .like>span {
-      position: inherit;
-      margin-left: -20%;
-  }
-
-  .dislike>span {
-      position: inherit;
-      margin-left: -20%;
-    }
-
-  .dislike {
-
-
-  }
-
-  .likeContainer {
-    float:left;
-    padding-left: 40%;
-
-  }
+span, span * {
+  width: 100% !important;
+}
 
 
 
