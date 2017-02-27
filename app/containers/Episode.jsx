@@ -10,7 +10,7 @@ import Login from '../components/Login';
 import Like from '../components/Like';
 import Dislike from '../components/Dislike';
 import CommentsCount from '../components/CommentsCount';
-import {ButtonToolbar, Button, ButtonGroup, Panel, DropdownButton, MenuItem, Row, Col, Grid, Accordion} from 'react-bootstrap'
+import {ButtonToolbar, Button, ButtonGroup, Panel, DropdownButton, MenuItem, Row, Col, Grid, Accordion, Modal} from 'react-bootstrap'
 import { incrementCount,
   decrementCount } from '../actions/vote';
 
@@ -28,18 +28,21 @@ class Episode extends Component {
 
   }
 
+
+
    episodeSelector() {
     if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
       return(
       <div className={cx('selectors')}>
         <ButtonGroup>
-        <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret">
+        <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret" bsSize="large">
           <MenuItem eventKey="1" onSelect={ ()=> this.setState({ episodeNum: 1 })}>Episode 1</MenuItem>
           <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
         </DropdownButton>
           <Button
             className={cx('next')}
             bsStyle="warning"
+            bsSize="large"
             onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
           </Button>
         </ButtonGroup>
@@ -53,9 +56,10 @@ class Episode extends Component {
           <Button
             className={cx('prev')}
             bsStyle="warning"
+            bsSize="large"
             onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Prev Episode
           </Button>
-          <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret">
+          <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret" bsSize="large">
             <MenuItem eventKey="1" onSelect={ ()=> this.setState({ episodeNum: 1 })}>Episode 1</MenuItem>
             <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
           </DropdownButton>
@@ -70,15 +74,17 @@ class Episode extends Component {
                 <Button
                   className={cx('prev')}
                   bsStyle="warning"
+                  bsSize="large"
                   onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Prev Episode
                 </Button>
-                <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret">
+                <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret" bsSize="large">
                   <MenuItem eventKey="1" onSelect={ ()=> this.setState({ episodeNum: 1 })}>Episode 1</MenuItem>
                   <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
                 </DropdownButton>
                 <Button
                   className={cx('next')}
                   bsStyle="warning"
+                  bsSize="large"
                   onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
               </Button>
             </ButtonGroup>
@@ -236,7 +242,7 @@ dislike() {
 
 
   render() {
-    const {episode, episodeSelector, episodeData, buttonsInstance, onIncrement, logo } = this.props;
+    const {episode, episodeSelector, episodeData, buttonsInstance, onIncrement, logo, about } = this.props;
     return (
       <Grid>
         <div className='video'>
@@ -249,17 +255,16 @@ dislike() {
           </div>
           <Row className="show-grid">
           <Col xs={12} md={12} lg={12}>
-            {this.episodeSelector()}
-          </Col>
-          <Col xs={12} md={6} lg={6}>
-          <Panel bsStyle="success" className={cx('likePanel')} collapsible header="Agree?">
-          {this.like()}
-          </Panel>
-          </Col>
-          <Col xs={12} md={6} lg={6}>
-          <Panel className={cx('dislikePanel')} bsStyle="danger" collapsible header="Disagree?">
-          {this.dislike()}
-          </Panel>
+            <ButtonGroup vertical block>
+              <Button bsStyle="warning" bsSize="large" className={cx('vote')} onClick={ ()=> this.setState({ vote: !this.state.vote })}>
+              VOTE!
+              </Button>
+              <Panel collapsible expanded={this.state.vote}>
+                <div className={cx('poll')}>
+              <iframe src="http://files.quizsnack.com/iframe/embed.html?hash=qh9ldi3c&width=250&height=370&wmode=window&bgcolor=EEEEEE&t=1488194709&width=250&height=370" width="250" height="370" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+            </div>
+              </Panel>
+            </ButtonGroup>
           </Col>
           </Row>
           <ButtonGroup vertical block>
@@ -270,6 +275,9 @@ dislike() {
               {this.commentSection()}
             </Panel>
           </ButtonGroup>
+          <Col xs={12} md={12} lg={12}>
+            {this.episodeSelector()}
+          </Col>
         </div>
       </Grid>
 
