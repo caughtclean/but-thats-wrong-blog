@@ -22,7 +22,10 @@
 }
 
 .poll {
-  text-align: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left: 35%;
 }
 
 .likePanel {
@@ -57,6 +60,15 @@
       display: none;
     }
 
+    .poll {
+      left:0;
+      text-align: center;
+    }
+
+}
+
+div.pds-vote {
+  text-align: center;
 }
 
   .selectors {

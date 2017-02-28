@@ -261,8 +261,8 @@ dislike() {
               </Button>
               <Panel collapsible expanded={this.state.vote}>
                 <div className={cx('poll')}>
-              <iframe src="http://files.quizsnack.com/iframe/embed.html?hash=qh9ldi3c&width=250&height=370&wmode=window&bgcolor=EEEEEE&t=1488194709&width=250&height=370" width="250" height="370" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-            </div>
+                    <script type="text/javascript" charset="utf-8" src="http://static.polldaddy.com/p/9676226.js"></script>
+                </div>
               </Panel>
             </ButtonGroup>
           </Col>
