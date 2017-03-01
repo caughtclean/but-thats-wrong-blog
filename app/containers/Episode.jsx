@@ -253,31 +253,29 @@ dislike() {
           <div className={cx('header')}>
           <h3>{this.episodeData().header}</h3>
           </div>
+          <Col xs={12} md={12} lg={12}>
+            {this.episodeSelector()}
+          </Col>
           <Row className="show-grid">
           <Col xs={12} md={12} lg={12}>
-            <ButtonGroup vertical block>
-              <Button bsStyle="warning" bsSize="large" className={cx('vote')} onClick={ ()=> this.setState({ vote: !this.state.vote })}>
+          <div className={cx('voteBox')}>
+              <Button bsStyle="danger" bsSize="large" className={cx('vote')} onClick={ ()=> this.setState({ vote: !this.state.vote })}>
               VOTE!
               </Button>
-              <Panel collapsible expanded={this.state.vote}>
+          </div>
+              <Panel collapsible expanded={this.state.vote} className={cx('votePanel')}>
                 <div className={cx('poll')}>
                     <script type="text/javascript" charset="utf-8" src="http://static.polldaddy.com/p/9676226.js"></script>
                 </div>
               </Panel>
-            </ButtonGroup>
           </Col>
           </Row>
-          <ButtonGroup vertical block>
             <Button bsStyle="primary" bsSize="large" className={cx('commentButton')} onClick={ ()=> this.setState({ open: !this.state.open })}>
             COMMENTS
             </Button>
-            <Panel collapsible expanded={this.state.open}>
+            <Panel collapsible expanded={this.state.open} className={cx('commentPanel')}>
               {this.commentSection()}
             </Panel>
-          </ButtonGroup>
-          <Col xs={12} md={12} lg={12}>
-            {this.episodeSelector()}
-          </Col>
         </div>
       </Grid>
 

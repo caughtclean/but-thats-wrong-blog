@@ -2599,29 +2599,34 @@ var Episode = function (_Component) {
             )
           ),
           _react2.default.createElement(
+            _reactBootstrap.Col,
+            { xs: 12, md: 12, lg: 12 },
+            this.episodeSelector()
+          ),
+          _react2.default.createElement(
             _reactBootstrap.Row,
             { className: 'show-grid' },
             _react2.default.createElement(
               _reactBootstrap.Col,
               { xs: 12, md: 12, lg: 12 },
               _react2.default.createElement(
-                _reactBootstrap.ButtonGroup,
-                { vertical: true, block: true },
+                'div',
+                { className: cx('voteBox') },
                 _react2.default.createElement(
                   _reactBootstrap.Button,
                   { bsStyle: 'warning', bsSize: 'large', className: cx('vote'), onClick: function onClick() {
                       return _this3.setState({ vote: !_this3.state.vote });
                     } },
                   'VOTE!'
-                ),
+                )
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.Panel,
+                { collapsible: true, expanded: this.state.vote, className: cx('panel') },
                 _react2.default.createElement(
-                  _reactBootstrap.Panel,
-                  { collapsible: true, expanded: this.state.vote },
-                  _react2.default.createElement(
-                    'div',
-                    { className: cx('poll') },
-                    _react2.default.createElement('script', { type: 'text/javascript', charset: 'utf-8', src: 'http://static.polldaddy.com/p/9676226.js' })
-                  )
+                  'div',
+                  { className: cx('poll') },
+                  _react2.default.createElement('script', { type: 'text/javascript', charset: 'utf-8', src: 'http://static.polldaddy.com/p/9676226.js' })
                 )
               )
             )
@@ -2641,11 +2646,6 @@ var Episode = function (_Component) {
               { collapsible: true, expanded: this.state.open },
               this.commentSection()
             )
-          ),
-          _react2.default.createElement(
-            _reactBootstrap.Col,
-            { xs: 12, md: 12, lg: 12 },
-            this.episodeSelector()
           )
         )
       );
@@ -13255,11 +13255,13 @@ module.exports = {
 	"poll": "rd-g52VL6vFDQ4FZq8h-b",
 	"likePanel": "fhrfJuNsNnwvgy0ZmVGeT",
 	"dislikePanel": "_234c3h4oSYAXaGugiDicuA",
+	"panel": "_1aXyZU5y4jdBKt8VTjJpVL",
 	"next": "_3HJ9fRs0cNcuoEmg1kYb0",
 	"prev": "_3oMS4bGbZobEJOzYU4Vhmb",
 	"pds-vote": "_3B0jVToTuGtbY_5PDZzTkZ",
 	"selectors": "_3GGHZ8qxanGqM9QWBVmHf2",
-	"commentButton": "ydHYD5kZ760pTjBFNPvQ_"
+	"commentButton": "ydHYD5kZ760pTjBFNPvQ_",
+	"vote": "_3Q88GvO6utYWoPonR-xVbi"
 };
 
 /***/ }),
