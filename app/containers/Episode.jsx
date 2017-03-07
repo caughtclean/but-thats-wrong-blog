@@ -37,58 +37,15 @@ class Episode extends Component {
         <ButtonGroup>
         <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret" bsSize="large">
           <MenuItem eventKey="1" onSelect={ ()=> this.setState({ episodeNum: 1 })}>Episode 1</MenuItem>
-          <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
         </DropdownButton>
           <Button
             className={cx('next')}
             bsStyle="warning"
             bsSize="large"
-            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
+            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +0  })}>Next Episode
           </Button>
         </ButtonGroup>
       </div>
-      )
-    }
-    if (this.state.episodeNum === 4) {
-      return(
-      <div className={cx('selectors')}>
-        <ButtonGroup>
-          <Button
-            className={cx('prev')}
-            bsStyle="warning"
-            bsSize="large"
-            onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Prev Episode
-          </Button>
-          <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret" bsSize="large">
-            <MenuItem eventKey="1" onSelect={ ()=> this.setState({ episodeNum: 1 })}>Episode 1</MenuItem>
-            <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
-          </DropdownButton>
-        </ButtonGroup>
-      </div>
-      )
-    }
-    else {
-      return(
-        <div className={cx('selectors')}>
-            <ButtonGroup>
-                <Button
-                  className={cx('prev')}
-                  bsStyle="warning"
-                  bsSize="large"
-                  onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum -1  })}>Prev Episode
-                </Button>
-                <DropdownButton bsStyle="default" title="Episodes" noCaret id="dropdown-no-caret" bsSize="large">
-                  <MenuItem eventKey="1" onSelect={ ()=> this.setState({ episodeNum: 1 })}>Episode 1</MenuItem>
-                  <MenuItem eventKey="2" onSelect={ ()=> this.setState({ episodeNum: 2 })}>Episode 2</MenuItem>
-                </DropdownButton>
-                <Button
-                  className={cx('next')}
-                  bsStyle="warning"
-                  bsSize="large"
-                  onClick={ ()=> this.setState({ episodeNum: this.state.episodeNum +1  })}>Next Episode
-              </Button>
-            </ButtonGroup>
-        </div>
       )
     }
   }
@@ -188,30 +145,7 @@ dislike() {
           />
       )
     }
-    if (this.state.episodeNum === 2) {
-      return (
-          <Comments
-          epComments={comments2}
-          key={this.state.episodeNum}
-          />
-      )
-    }
-    if (this.state.episodeNum === 3) {
-      return (
-          <Comments
-          epComments={comments3}
-          key={this.state.episodeNum}
-          />
-      )
-    }
-    if (this.state.episodeNum === 4) {
-      return (
-          <Comments
-          epComments={comments4}
-          key={this.state.episodeNum}
-          />
-      )
-    }
+
   }
 
 
@@ -256,20 +190,6 @@ dislike() {
           <Col xs={12} md={12} lg={12}>
             {this.episodeSelector()}
           </Col>
-          <Row className="show-grid">
-          <Col xs={12} md={12} lg={12}>
-          <div className={cx('voteBox')}>
-              <Button bsStyle="danger" bsSize="large" className={cx('vote')} onClick={ ()=> this.setState({ vote: !this.state.vote })}>
-              VOTE!
-              </Button>
-          </div>
-              <Panel collapsible expanded={this.state.vote} className={cx('votePanel')}>
-                <div className={cx('poll')}>
-                    <script type="text/javascript" charset="utf-8" src="http://static.polldaddy.com/p/9676226.js"></script>
-                </div>
-              </Panel>
-          </Col>
-          </Row>
             <Button bsStyle="primary" bsSize="large" className={cx('commentButton')} onClick={ ()=> this.setState({ open: !this.state.open })}>
             COMMENTS
             </Button>

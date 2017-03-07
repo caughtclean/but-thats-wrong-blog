@@ -54,7 +54,7 @@ const linkAssets = () => {
   return isProduction ? links : links.filter(l => l.rel !== 'stylesheet');
 };
 
-export const title = 'reactGo - just ship it';
+export const title = 'But Thats Wrong';
 export const meta = metaAssets();
 export const link = linkAssets();
 
