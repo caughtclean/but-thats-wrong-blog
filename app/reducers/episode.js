@@ -14,8 +14,8 @@ const episode1 = (state =
 
 
 const episode2 = (state =
-  { url: "-7sKmD3meLs",
-    header: "EPISODE 2",
+  { url: "IpG7Es7Fams",
+    header: "EPISODE 2: Saran Wrap Is Terrible",
     comments: "http://www.butthatswrong.com/comments/episode2",
     likes: "http://www.butthatswrong.com/comments/episode2likes",
     dislikes: "http://www.butthatswrong.com/comments/episode2dislikes"

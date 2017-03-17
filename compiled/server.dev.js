@@ -2309,6 +2309,13 @@ var Episode = function (_Component) {
                     return _this2.setState({ episodeNum: 1 });
                   } },
                 'Episode 1'
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.MenuItem,
+                { eventKey: '2', onSelect: function onSelect() {
+                    return _this2.setState({ episodeNum: 2 });
+                  } },
+                'Episode 2'
               )
             ),
             _react2.default.createElement(
@@ -2321,6 +2328,45 @@ var Episode = function (_Component) {
                   return _this2.setState({ episodeNum: _this2.state.episodeNum + 0 });
                 } },
               'Next Episode'
+            )
+          )
+        );
+      }
+      if (this.state.episodeNum === 2) {
+        return _react2.default.createElement(
+          'div',
+          { className: cx('selectors') },
+          _react2.default.createElement(
+            _reactBootstrap.ButtonGroup,
+            null,
+            _react2.default.createElement(
+              _reactBootstrap.Button,
+              {
+                className: cx('prev'),
+                bsStyle: 'warning',
+                bsSize: 'large',
+                onClick: function onClick() {
+                  return _this2.setState({ episodeNum: _this2.state.episodeNum - 1 });
+                } },
+              'Prev Episode'
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.DropdownButton,
+              { bsStyle: 'default', title: 'Episodes', noCaret: true, id: 'dropdown-no-caret', bsSize: 'large' },
+              _react2.default.createElement(
+                _reactBootstrap.MenuItem,
+                { eventKey: '1', onSelect: function onSelect() {
+                    return _this2.setState({ episodeNum: 1 });
+                  } },
+                'Episode 1'
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.MenuItem,
+                { eventKey: '2', onSelect: function onSelect() {
+                    return _this2.setState({ episodeNum: 2 });
+                  } },
+                'Episode 2'
+              )
             )
           )
         );
@@ -10871,8 +10917,8 @@ var episode1 = function episode1() {
 };
 
 var episode2 = function episode2() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { url: "-7sKmD3meLs",
-    header: "EPISODE 2",
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { url: "IpG7Es7Fams",
+    header: "EPISODE 2: Saran Wrap Is Terrible",
     comments: "http://www.butthatswrong.com/comments/episode2",
     likes: "http://www.butthatswrong.com/comments/episode2likes",
     dislikes: "http://www.butthatswrong.com/comments/episode2dislikes"
