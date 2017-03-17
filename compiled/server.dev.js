@@ -2282,7 +2282,7 @@ var Episode = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Episode.__proto__ || Object.getPrototypeOf(Episode)).call(this, props));
 
     _this.state = {
-      episodeNum: 1
+      episodeNum: 2
     };
 
     return _this;
@@ -2325,7 +2325,7 @@ var Episode = function (_Component) {
                 bsStyle: 'warning',
                 bsSize: 'large',
                 onClick: function onClick() {
-                  return _this2.setState({ episodeNum: _this2.state.episodeNum + 0 });
+                  return _this2.setState({ episodeNum: _this2.state.episodeNum + 1 });
                 } },
               'Next Episode'
             )
@@ -2471,6 +2471,12 @@ var Episode = function (_Component) {
       if (this.state.episodeNum === 1 || this.state.episodeNum === 0) {
         return _react2.default.createElement(_Comments2.default, {
           epComments: comments1,
+          key: this.state.episodeNum
+        });
+      }
+      if (this.state.episodeNum === 2) {
+        return _react2.default.createElement(_Comments2.default, {
+          epComments: comments2,
           key: this.state.episodeNum
         });
       }
